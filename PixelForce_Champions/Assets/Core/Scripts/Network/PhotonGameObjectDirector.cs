@@ -11,6 +11,7 @@ public class PhotonGameObjectDirector : Photon.MonoBehaviour
     public GameObject[] gameObjects;
 
 
+
     private void Update()
     {
 
