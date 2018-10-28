@@ -6,7 +6,8 @@ public class pl_shoot : MonoBehaviour {
 
     public Camera cam;
     public float Health = 90f;
-
+    public AudioSource DeathSound;
+    public float fireRate = 0.3f;
 
 
 
@@ -22,12 +23,11 @@ public class pl_shoot : MonoBehaviour {
     void TakeDamage()
     {
         Health -= 10f;
+
     }
 
 
 
-
-    
 
 
 
@@ -35,21 +35,21 @@ public class pl_shoot : MonoBehaviour {
     {
 
 
+        //Do something after death.
 
         if (Health <0)
         {
 
             Debug.Log("You have died");
-
+            DeathSound.enabled = true;
         }
 
-        if (Health == 0)
-        {
 
-            Debug.Log("You have died");
 
-        }
 
+
+
+        //Shoot Weapon
         if (Input.GetMouseButtonDown (0))
         {
 
