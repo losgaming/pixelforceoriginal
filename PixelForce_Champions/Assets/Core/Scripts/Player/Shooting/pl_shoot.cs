@@ -7,10 +7,13 @@ public class pl_shoot : MonoBehaviour {
     public Camera cam;
     public float Health = 90f;
     public AudioSource DeathSound;
-    public float fireRate = 0.3f;
     public GameObject BloodScreen;
-    public PlayerMotorBehavior playerMotor;
     public Transform Scar_MFSpawnPoint;
+    public float fireRate = 5f;
+    private float nextTimeToFire = 0f;
+    public CPMPlayer cPMPlayer;
+    public AudioSource audioSourceShoot;
+   
 
 
 
@@ -31,7 +34,36 @@ public class pl_shoot : MonoBehaviour {
 
 
 
+    public void Shoot ()
+    {
 
+
+        audioSourceShoot.Play();
+        cPMPlayer.rotX += Random.Range(-2, -3);
+        cPMPlayer.rotY += Random.Range(-2f, 2);
+        PhotonNetwork.Instantiate("MuzzleFlash1 (1)", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+            if (hit.collider.tag == "Enemy")
+            {
+
+
+                hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
+                Debug.Log("You have hit an enemy");
+                print("I'm looking at " + hit.transform.name);
+
+            }
+
+
+            else
+            {
+
+                return;
+            }
+
+
+    }
 
 
     void Update()
@@ -46,38 +78,18 @@ public class pl_shoot : MonoBehaviour {
             Debug.Log("You have died");
             DeathSound.enabled = true;
             BloodScreen.SetActive(true);
-            playerMotor.canMove = false;
         }
 
 
 
 
-
-
         //Shoot Weapon
-        if (Input.GetMouseButtonDown (0))
+        if (Input.GetMouseButton (0) && Time.time >= nextTimeToFire)
         {
 
-            PhotonNetwork.Instantiate("MuzzleFlash1 (1)", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
-            Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-                if (hit.collider.tag == "Enemy")
-                {
 
-
-                    hit.collider.GetComponent<PhotonView>().RPC ("TakeDamage", PhotonTargets.AllBuffered);
-                    Debug.Log("You have hit an enemy");
-                    print("I'm looking at " + hit.transform.name);
-
-                }
-
-
-            else
-                {
-
-                    return;
-                }
+            nextTimeToFire = Time.time + 0.04f / fireRate;
+            Shoot();
 
         }
     }

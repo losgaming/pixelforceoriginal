@@ -8,7 +8,7 @@ public class scar_animatorone : MonoBehaviour {
 
 
     public Animator animone;
-    public PlayerMotorBehavior playerMotorBehavior;
+    public CPMPlayer cPMPlayer;
 
 
 	// Use this for initialization
@@ -20,21 +20,20 @@ public class scar_animatorone : MonoBehaviour {
 	void Update () {
 
 
+        //if (playerMotorBehavior.isMoving == true)
+        //{
 
-        if (playerMotorBehavior.isMoving == true)
-        {
+        //    animone.SetBool("IsWalking", true);
 
-            animone.SetBool("IsWalking", true);
-
-        }
+        //}
 		
 
 
-        else
-        {
+        //else
+       // {
 
-            animone.SetBool("IsWalking", false);
+          //  animone.SetBool("IsWalking", false);
 
-        }
+        //}
 	}
 }

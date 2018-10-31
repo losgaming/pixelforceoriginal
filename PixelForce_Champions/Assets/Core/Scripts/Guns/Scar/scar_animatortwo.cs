@@ -6,7 +6,7 @@ public class scar_animatortwo : MonoBehaviour {
 
 
     public Animator animtwo;
-    public PlayerMotorBehavior playerMotorBehavior;
+    public CPMPlayer cPMPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -19,19 +19,19 @@ public class scar_animatortwo : MonoBehaviour {
 
 
 
-        if (playerMotorBehavior.isMoving == true)
-        {
+        //if (playerMotorBehavior.isMoving == true)
+        //{
 
-            animtwo.SetBool("IsWalking", true);
+          //  animtwo.SetBool("IsWalking", true);
 
-        }
+        //}
 		
 
-        else
-        {
+        //else
+        //{
 
-            animtwo.SetBool("IsWalking", false);
+          //  animtwo.SetBool("IsWalking", false);
 
-        }
+        //}
 	}
 }
