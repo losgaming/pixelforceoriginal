@@ -8,6 +8,8 @@ public class pl_shoot : MonoBehaviour {
     public float Health = 90f;
     public AudioSource DeathSound;
     public float fireRate = 0.3f;
+    public GameObject BloodScreen;
+    public PlayerMotorBehavior playerMotor;
 
 
 
@@ -42,6 +44,8 @@ public class pl_shoot : MonoBehaviour {
 
             Debug.Log("You have died");
             DeathSound.enabled = true;
+            BloodScreen.SetActive(true);
+            playerMotor.canMove = false;
         }
 
 

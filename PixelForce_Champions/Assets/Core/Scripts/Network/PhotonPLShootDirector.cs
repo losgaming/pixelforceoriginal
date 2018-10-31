@@ -10,6 +10,7 @@ public class PhotonPLShootDirector : Photon.MonoBehaviour {
     public MonoBehaviour PLShoot;
 
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,12 +27,14 @@ public class PhotonPLShootDirector : Photon.MonoBehaviour {
 
             PLShoot.enabled = true;
 
+
         }
 
         else
         {
 
             PLShoot.enabled = false;
+
 
         }
 
