@@ -10,6 +10,7 @@ public class pl_shoot : MonoBehaviour {
     public float fireRate = 0.3f;
     public GameObject BloodScreen;
     public PlayerMotorBehavior playerMotor;
+    public Transform Scar_MFSpawnPoint;
 
 
 
@@ -57,7 +58,7 @@ public class pl_shoot : MonoBehaviour {
         if (Input.GetMouseButtonDown (0))
         {
 
-
+            PhotonNetwork.Instantiate("MuzzleFlash1 (1)", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
