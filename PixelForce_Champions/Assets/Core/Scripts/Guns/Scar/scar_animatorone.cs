@@ -20,20 +20,26 @@ public class scar_animatorone : MonoBehaviour {
 	void Update () {
 
 
-        //if (playerMotorBehavior.isMoving == true)
-        //{
+        //Check if we are moving to update animator.
 
-        //    animone.SetBool("IsWalking", true);
-
-        //}
-		
+        if (cPMPlayer.testbool == false)
+        {
 
 
-        //else
-       // {
+            animone.SetBool("IsWalking", false);
 
-          //  animone.SetBool("IsWalking", false);
+        }
 
-        //}
-	}
+
+
+
+        if (cPMPlayer.testbool == true)
+        {
+
+
+            animone.SetBool("IsWalking", true);
+
+        }
+
+    }
 }

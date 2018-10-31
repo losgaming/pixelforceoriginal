@@ -6,14 +6,18 @@ public class pl_shoot : MonoBehaviour {
 
     public Camera cam;
     public float Health = 90f;
-    public AudioSource DeathSound;
     public GameObject BloodScreen;
     public Transform Scar_MFSpawnPoint;
     public float fireRate = 5f;
     private float nextTimeToFire = 0f;
     public CPMPlayer cPMPlayer;
     public AudioSource audioSourceShoot;
-   
+    public AudioSource audioSourceShoot1;
+    public AudioSource audioSourceShoot2;
+    public int audioran = 0;
+
+
+
 
 
 
@@ -38,7 +42,36 @@ public class pl_shoot : MonoBehaviour {
     {
 
 
-        audioSourceShoot.Play();
+        audioran = Random.Range(1, 3);
+
+
+
+        if (audioran == 1)
+        {
+            audioSourceShoot.pitch = (Random.Range(0.8f, 1.0f));
+            audioSourceShoot.Play();
+
+        }
+
+        if (audioran == 2 )
+        {
+
+            audioSourceShoot1.pitch = (Random.Range(0.8f, 1.0f));
+            audioSourceShoot1.Play();
+
+        }
+
+
+        if (audioran == 3 )
+        {
+
+            audioSourceShoot2.pitch = (Random.Range(0.8f, 1.0f));
+            audioSourceShoot2.Play();
+
+
+        }
+
+
         cPMPlayer.rotX += Random.Range(-2, -3);
         cPMPlayer.rotY += Random.Range(-2f, 2);
         PhotonNetwork.Instantiate("MuzzleFlash1 (1)", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
@@ -76,7 +109,6 @@ public class pl_shoot : MonoBehaviour {
         {
 
             Debug.Log("You have died");
-            DeathSound.enabled = true;
             BloodScreen.SetActive(true);
         }
 

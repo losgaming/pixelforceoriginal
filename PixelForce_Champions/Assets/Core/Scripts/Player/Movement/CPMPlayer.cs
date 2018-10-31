@@ -61,6 +61,9 @@ public class CPMPlayer : MonoBehaviour
     public float sideStrafeSpeed = 1.0f;          // What the max speed to generate when side strafing
     public float jumpSpeed = 8.0f;                // The speed at which the character's up axis gains when hitting jump
     public bool holdJumpToBhop = false;           // When enabled allows player to just hold jump button to keep on bhopping perfectly. Beware: smells like casual.
+    public bool isMovingForward = false;
+    public bool isMovingSideways = false;
+    public bool testbool = false;
 
     /*print() style */
     public GUIStyle style;
@@ -115,6 +118,36 @@ public class CPMPlayer : MonoBehaviour
 
     private void Update()
     {
+
+
+        //Checks if we are moving.
+        if (_cmd.forwardMove != 0)
+        {
+
+            testbool = true;
+            Debug.Log("you are moving forward");
+
+
+
+        }
+
+
+        else
+        {
+
+            testbool = false;
+            Debug.Log("you are not walking");
+
+        }
+
+
+        if (_cmd.rightMove != 0)
+        {
+
+            testbool = true;
+            Debug.Log("you are moving forward");
+
+        }
 
 
 
@@ -183,6 +216,8 @@ public class CPMPlayer : MonoBehaviour
     {
         _cmd.forwardMove = Input.GetAxisRaw("Vertical");
         _cmd.rightMove   = Input.GetAxisRaw("Horizontal");
+
+
     }
 
     /**
