@@ -22,7 +22,11 @@ public class pl_shoot : MonoBehaviour {
     public GameObject ch4;
     public float scarSpread = 0.01f;
     public bool isADS = false;
+    public AudioSource m1;
+    public AudioSource m2;
+    public AudioSource m3;
     public int audioran = 0;
+    public int audioranm = 0;
 
 
 
@@ -137,8 +141,8 @@ public class pl_shoot : MonoBehaviour {
         if (isADS == false)
         {
 
-            cPMPlayer.rotX += Random.Range(-4, -5);
-            cPMPlayer.rotY += Random.Range(-2f, 2);
+            cPMPlayer.rotX += Random.Range(-2.6f, -3);
+            cPMPlayer.rotY += Random.Range(-2f, 1.7f);
 
         }
 
@@ -153,8 +157,6 @@ public class pl_shoot : MonoBehaviour {
 
         }
 
-        //spread
-        //scarSpread = Random.Range(0.05f, 1);
 
 
         //increase spread of scar every shot
@@ -171,7 +173,7 @@ public class pl_shoot : MonoBehaviour {
         {
 
 
-            scarSpread += 0.00047f;
+            scarSpread += 0.00041f;
 
         }
 
@@ -192,28 +194,22 @@ public class pl_shoot : MonoBehaviour {
 
 
 
+        if (hit.collider.tag == "Enemy")
+        {
 
-            {
+            hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
+            Debug.Log("You have hit an enemy");
+            print("I'm looking at " + hit.transform.name);
+            PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
+        }
 
-                //hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
-                //Debug.Log("You have hit an enemy");
-                //print("I'm looking at " + hit.transform.name);
-                //PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+        else
+        {
 
+            return;
 
-            }
-
-
-
-
-
-
-            {
-
-
-               // return;
-            }
+        }
 
 
 
@@ -227,7 +223,7 @@ public class pl_shoot : MonoBehaviour {
 
 
 
-
+        //If you are holding down aim
         if (Input.GetMouseButtonDown(1))
         {
 
@@ -237,11 +233,48 @@ public class pl_shoot : MonoBehaviour {
             animone.SetBool("IsADS", true);
             scarSpread = 0.01f;
             isADS = true;
+            cPMPlayer.moveSpeed = 5;
+            cPMPlayer.runDeacceleration = 2.5f;
+            cPMPlayer.runAcceleration = 4;
 
+
+            audioranm = Random.Range(1, 3);
+
+
+            if (audioranm == 1)
+            {
+
+
+                m1.pitch = Random.Range(0.8f, 1);
+                m1.Play();
+            }
+
+
+            if (audioranm == 2)
+            {
+
+
+                m2.pitch = Random.Range(0.8f, 1);
+                m2.Play();
+            }
+
+
+
+            if (audioranm == 3)
+            {
+
+
+                m3.pitch = Random.Range(0.8f, 1);
+                m3.Play();
+                
+
+            }
 
 
         }
 
+
+        //If you let go of aim
         if (Input.GetMouseButtonUp(1))
         {
 
@@ -251,7 +284,36 @@ public class pl_shoot : MonoBehaviour {
             animone.SetBool("IsADS", false);
             scarSpread = 0.01f;
             isADS = false;
+            cPMPlayer.moveSpeed = 7;
+            cPMPlayer.runDeacceleration = 5;
+            cPMPlayer.runAcceleration = 6;
 
+
+            if (audioranm == 1)
+            {
+
+
+                m1.Stop();
+            }
+
+
+            if (audioranm == 2)
+            {
+
+
+                m2.Stop();
+            }
+
+
+
+            if (audioranm == 3)
+            {
+
+
+                m3.Stop();
+
+
+            }
         }
 
 
