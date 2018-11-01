@@ -33,42 +33,7 @@ public class AimSway : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(1))
-			currentTime = 0; //start aiming process
-		if (Input.GetMouseButton(1))
-		{
-			// Lerp from current Postition and rotation to ADS position and rotation based on the aimspeed
-			if (currentTime < 1)
-			{
-				moving = true;
-				currentTime += (Time.deltaTime / aimSpeed);
-				if (Time.deltaTime > 0.0166)
-					currentTime += (Time.deltaTime / aimSpeed); // if fps is low, increase the speed
-				if (Time.deltaTime > 0.025f)
-					currentTime += (Time.deltaTime / aimSpeed); // if fps is very low, increase the speed even more
-				transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(aimRotation), currentTime);
-				transform.localPosition = Vector3.Lerp(transform.localPosition, aimPosition, currentTime);
-				if (cameraZoom)
-					mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, zoomFOV, currentTime); // Set camera FOV as zoom FOV.
-			}
-			if (currentTime >= 1f)
-			{
-				//ADS movement completed
-				moving = false;
-			}
-		}
-		else if (transform.localPosition != hipFirePosition)
-		{
-			//return to the hipfire position, rotation and original camera FOV
-			moving = true;
-			currentTime = 0f;
-			transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(hipFireRotation), Time.deltaTime * 12);
-			transform.localPosition = Vector3.Lerp(transform.localPosition, hipFirePosition, Time.deltaTime * 12);
-			if (cameraZoom)
-				mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, hipfireFOV, Time.deltaTime * 12); // Return camera FOV to the original value.
-		}
-		else if (transform.localPosition != aimPosition)
-			moving = false;
+
 		// If the mouse is moving
 		if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
 		{
