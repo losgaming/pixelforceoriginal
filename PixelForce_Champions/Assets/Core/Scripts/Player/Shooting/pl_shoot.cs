@@ -14,6 +14,8 @@ public class pl_shoot : MonoBehaviour {
     public AudioSource audioSourceShoot;
     public AudioSource audioSourceShoot1;
     public AudioSource audioSourceShoot2;
+    public Animator animone;
+    public Animator animtwo;
     public int audioran = 0;
 
 
@@ -38,8 +40,36 @@ public class pl_shoot : MonoBehaviour {
 
 
 
+
+    public void AnimSetFalse ()
+    {
+
+        animone.SetBool("IsShoot", false);
+        animtwo.SetBool("IsShoot", false);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
     public void Shoot ()
     {
+
+
+
+
+        animone.SetBool("IsShoot", true);
+        animtwo.SetBool("IsShoot", true);
+
+
+        Invoke("AnimSetFalse", 0.05f);
 
 
         audioran = Random.Range(1, 3);
@@ -72,9 +102,10 @@ public class pl_shoot : MonoBehaviour {
         }
 
 
-        cPMPlayer.rotX += Random.Range(-2, -3);
+        cPMPlayer.rotX += Random.Range(-4, -5);
         cPMPlayer.rotY += Random.Range(-2f, 2);
-        PhotonNetwork.Instantiate("MuzzleFlash1 (1)", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
+
+        PhotonNetwork.Instantiate("MuzzleFlash", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -86,7 +117,11 @@ public class pl_shoot : MonoBehaviour {
                 Debug.Log("You have hit an enemy");
                 print("I'm looking at " + hit.transform.name);
 
+
+                PhotonNetwork.Instantiate("ConcreteImpact", hit.point, Quaternion.identity, 0 );
+
             }
+
 
 
             else
@@ -101,6 +136,34 @@ public class pl_shoot : MonoBehaviour {
 
     void Update()
     {
+
+
+
+
+        if (Input.GetMouseButtonDown(1))
+        {
+
+
+
+            animtwo.SetBool("IsADS", true);
+            animone.SetBool("IsADS", true);
+
+
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+
+
+
+            animtwo.SetBool("IsADS", false);
+            animone.SetBool("IsADS", false);
+
+
+        }
+
+
+
 
 
         //Do something after death.
@@ -120,7 +183,7 @@ public class pl_shoot : MonoBehaviour {
         {
 
 
-            nextTimeToFire = Time.time + 0.04f / fireRate;
+            nextTimeToFire = Time.time + 0.035f / fireRate;
             Shoot();
 
         }
