@@ -16,6 +16,12 @@ public class pl_shoot : MonoBehaviour {
     public AudioSource audioSourceShoot2;
     public Animator animone;
     public Animator animtwo;
+    public GameObject ch1;
+    public GameObject ch2;
+    public GameObject ch3;
+    public GameObject ch4;
+    public float scarSpread = 0.01f;
+    public bool isADS = false;
     public int audioran = 0;
 
 
@@ -25,6 +31,14 @@ public class pl_shoot : MonoBehaviour {
 
     void Start()
     {
+
+
+        //sets crosshair to normal position when started
+        ch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
+        ch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
+        ch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
+        ch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
+        scarSpread = 0.01f;
 
     }
 
@@ -51,6 +65,19 @@ public class pl_shoot : MonoBehaviour {
     }
 
 
+    //Cross hair goes back to normal position after I stop shooting.
+    public void CHNormal ()
+    {
+
+
+        ch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
+        ch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
+        ch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
+        ch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
+
+        scarSpread = 0.01f;
+
+    }
 
 
 
@@ -62,8 +89,11 @@ public class pl_shoot : MonoBehaviour {
     public void Shoot ()
     {
 
-
-
+        //Crosshair spread the more I keep shooting.
+        ch1.GetComponent<RectTransform>().localPosition += new Vector3(0, scarSpread) * 256;
+        ch2.GetComponent<RectTransform>().localPosition += new Vector3(0, -scarSpread) * 256;
+        ch3.GetComponent<RectTransform>().localPosition += new Vector3(scarSpread, 0) * 256;
+        ch4.GetComponent<RectTransform>().localPosition += new Vector3(-scarSpread, 0) * 256;
 
         animone.SetBool("IsShoot", true);
         animtwo.SetBool("IsShoot", true);
@@ -101,34 +131,92 @@ public class pl_shoot : MonoBehaviour {
 
         }
 
+        //recoil
 
-        cPMPlayer.rotX += Random.Range(-4, -5);
-        cPMPlayer.rotY += Random.Range(-2f, 2);
+
+        if (isADS == false)
+        {
+
+            cPMPlayer.rotX += Random.Range(-4, -5);
+            cPMPlayer.rotY += Random.Range(-2f, 2);
+
+        }
+
+
+
+        if (isADS == true)
+        {
+
+
+            cPMPlayer.rotX += Random.Range(-1, -2.4f);
+            cPMPlayer.rotY += Random.Range(-1f, 1);
+
+        }
+
+        //spread
+        //scarSpread = Random.Range(0.05f, 1);
+
+
+        //increase spread of scar every shot
+
+        if (isADS == false)
+        {
+
+            scarSpread += 0.00083f;
+
+        }
+
+
+        if (isADS == true)
+        {
+
+
+            scarSpread += 0.00047f;
+
+        }
 
         PhotonNetwork.Instantiate("MuzzleFlash", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        Ray ray = cam.ViewportPointToRay(new Vector3(0, 0, 0));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-            if (hit.collider.tag == "Enemy")
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + Random.insideUnitSphere * scarSpread, out hit))
+
+        {
+
+            Debug.Log(hit.transform.name);
+            PhotonNetwork.Instantiate("ScanLocation", hit.point, Quaternion.identity, 0);
+        }
+
+
+
+
+
+
+
+
             {
 
 
-                hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
-                Debug.Log("You have hit an enemy");
-                print("I'm looking at " + hit.transform.name);
+                //hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
+                //Debug.Log("You have hit an enemy");
+                //print("I'm looking at " + hit.transform.name);
+                //PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
-
-                PhotonNetwork.Instantiate("ConcreteImpact", hit.point, Quaternion.identity, 0 );
 
             }
 
 
 
-            else
+
+
+
             {
 
-                return;
+
+               // return;
             }
+
+
+
 
 
     }
@@ -147,6 +235,9 @@ public class pl_shoot : MonoBehaviour {
 
             animtwo.SetBool("IsADS", true);
             animone.SetBool("IsADS", true);
+            scarSpread = 0.01f;
+            isADS = true;
+
 
 
         }
@@ -158,7 +249,8 @@ public class pl_shoot : MonoBehaviour {
 
             animtwo.SetBool("IsADS", false);
             animone.SetBool("IsADS", false);
-
+            scarSpread = 0.01f;
+            isADS = false;
 
         }
 
@@ -176,6 +268,18 @@ public class pl_shoot : MonoBehaviour {
         }
 
 
+
+
+
+        //Shoot weapon let go
+        if (Input.GetMouseButtonUp(0))
+        {
+
+
+
+            CHNormal();
+
+        }
 
 
         //Shoot Weapon
