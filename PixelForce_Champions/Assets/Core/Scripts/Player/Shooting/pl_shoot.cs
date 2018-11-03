@@ -1,56 +1,107 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class pl_shoot : MonoBehaviour {
+public class pl_shoot : MonoBehaviour
+{
 
+
+
+    //Where the raycast come from.
     public Camera cam;
+
+
+    //Player Health.
     public float Health = 90f;
+
+
+
+
+    //When player dies.
     public GameObject BloodScreen;
+
+
+
+
+    //Scar muzzle flash spawn point.
     public Transform Scar_MFSpawnPoint;
-    public float fireRate = 5f;
+
+
+
+    //Scar FireRate.
+    public float ScarfireRate = 5f;
     private float nextTimeToFire = 0f;
+
+
+    //Access the movement script.
     public CPMPlayer cPMPlayer;
-    public AudioSource audioSourceShoot;
-    public AudioSource audioSourceShoot1;
-    public AudioSource audioSourceShoot2;
-    public Animator animone;
-    public Animator animtwo;
-    public GameObject ch1;
-    public GameObject ch2;
-    public GameObject ch3;
-    public GameObject ch4;
-    public float scarSpread = 0.01f;
-    public bool isADS = false;
-    public AudioSource m1;
-    public AudioSource m2;
-    public AudioSource m3;
-    public int audioran = 0;
-    public int audioranm = 0;
+
+
+    //Scar ammo system.
+    public float ScarClip = 30;
+    public float ScarMags = 270;
+    public float ScarClipRecord = 0;
+
+
+    //Scar Shoot Sounds with different pitches
+    public AudioSource ScaraudioSourceShoot;
+    public AudioSource ScaraudioSourceShoot1;
+    public AudioSource ScaraudioSourceShoot2;
+
+    //Scar animators for shoot and walk etc...
+    public Animator Scaranimone;
+    public Animator Scaranimtwo;
+
+    //This set of crosshair is for staying still spread representation.
+    public GameObject Scarch1;
+    public GameObject Scarch2;
+    public GameObject Scarch3;
+    public GameObject Scarch4;
+
+
+    //Scar spread system.
+    public float scarSpread = 0;
+    public float scarSpreadCollection = 0;
+
+
+    //Check if scar is ADS.
+    public bool ScarisADS = false;
+
+
+    //ADS play sounds.
+    public AudioSource Scarm1;
+    public AudioSource Scarm2;
+    public AudioSource Scarm3;
+
+
+    //Randomize sounds played.
+    public int Scaraudioran = 0;
+    public int Scaraudioranm = 0;
+
+    //Check if Scar can shoot.
+    public bool ScarCanShoot = true;
 
 
 
 
-
-
-    void Start()
+    private void Start()
     {
 
-
         //sets crosshair to normal position when started
-        ch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
-        ch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
-        ch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
-        ch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
-        scarSpread = 0.01f;
+        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
+        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
+        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
+        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
+
+        scarSpread = 0;
+        scarSpreadCollection = 0;
+
 
     }
 
 
 
-
+    //pun rpc 
     [PunRPC]
-    void TakeDamage()
+    private void TakeDamage()
     {
         Health -= 10f;
 
@@ -59,27 +110,30 @@ public class pl_shoot : MonoBehaviour {
 
 
 
-    public void AnimSetFalse ()
+    public void AnimSetFalse()
     {
 
-        animone.SetBool("IsShoot", false);
-        animtwo.SetBool("IsShoot", false);
+        Scaranimone.SetBool("IsShoot", false);
+        Scaranimtwo.SetBool("IsShoot", false);
 
 
     }
 
 
     //Cross hair goes back to normal position after I stop shooting.
-    public void CHNormal ()
+    public void CHNormal()
     {
 
+        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
+        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
+        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
+        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
 
-        ch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
-        ch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
-        ch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
-        ch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
 
-        scarSpread = 0.01f;
+
+        //sets the spread back to normal when i stop shooting
+        scarSpread = 0;
+        scarSpreadCollection = 0;
 
     }
 
@@ -90,47 +144,55 @@ public class pl_shoot : MonoBehaviour {
 
 
 
-    public void Shoot ()
+    public void ScarShoot()
     {
 
-        //Crosshair spread the more I keep shooting.
-        ch1.GetComponent<RectTransform>().localPosition += new Vector3(0, scarSpread) * 256;
-        ch2.GetComponent<RectTransform>().localPosition += new Vector3(0, -scarSpread) * 256;
-        ch3.GetComponent<RectTransform>().localPosition += new Vector3(scarSpread, 0) * 256;
-        ch4.GetComponent<RectTransform>().localPosition += new Vector3(-scarSpread, 0) * 256;
 
-        animone.SetBool("IsShoot", true);
-        animtwo.SetBool("IsShoot", true);
+
+
+        ScarClipRecord += 1;
+        ScarClip -= 1;
+
+
+
+        //Everytime we shoot scar spread value goes up. The crosshair expands in the update function.
+        scarSpread += Mathf.Lerp(scarSpread, scarSpreadCollection, 32);
+
+
+
+
+        Scaranimone.SetBool("IsShoot", true);
+        Scaranimtwo.SetBool("IsShoot", true);
 
 
         Invoke("AnimSetFalse", 0.05f);
 
 
-        audioran = Random.Range(1, 3);
+        Scaraudioran = Random.Range(1, 3);
 
 
 
-        if (audioran == 1)
+        if (Scaraudioran == 1)
         {
-            audioSourceShoot.pitch = (Random.Range(0.8f, 1.0f));
-            audioSourceShoot.Play();
+            ScaraudioSourceShoot.pitch = (Random.Range(0.8f, 1.0f));
+            ScaraudioSourceShoot.Play();
 
         }
 
-        if (audioran == 2 )
+        if (Scaraudioran == 2)
         {
 
-            audioSourceShoot1.pitch = (Random.Range(0.8f, 1.0f));
-            audioSourceShoot1.Play();
+            ScaraudioSourceShoot1.pitch = (Random.Range(0.8f, 1.0f));
+            ScaraudioSourceShoot1.Play();
 
         }
 
 
-        if (audioran == 3 )
+        if (Scaraudioran == 3)
         {
 
-            audioSourceShoot2.pitch = (Random.Range(0.8f, 1.0f));
-            audioSourceShoot2.Play();
+            ScaraudioSourceShoot2.pitch = (Random.Range(0.8f, 1.0f));
+            ScaraudioSourceShoot2.Play();
 
 
         }
@@ -138,7 +200,7 @@ public class pl_shoot : MonoBehaviour {
         //recoil
 
 
-        if (isADS == false)
+        if (ScarisADS == false)
         {
 
             cPMPlayer.rotX += Random.Range(-2.6f, -3);
@@ -148,7 +210,7 @@ public class pl_shoot : MonoBehaviour {
 
 
 
-        if (isADS == true)
+        if (ScarisADS == true)
         {
 
 
@@ -161,19 +223,20 @@ public class pl_shoot : MonoBehaviour {
 
         //increase spread of scar every shot
 
-        if (isADS == false)
+        if (ScarisADS == false)
         {
 
-            scarSpread += 0.00083f;
+            scarSpreadCollection += 0.00083f;
 
         }
 
 
-        if (isADS == true)
+
+        if (ScarisADS == true)
         {
 
 
-            scarSpread += 0.00041f;
+            scarSpreadCollection += 0.00041f;
 
         }
 
@@ -218,9 +281,79 @@ public class pl_shoot : MonoBehaviour {
     }
 
 
-    void Update()
+
+
+
+
+
+    private void Update()
     {
 
+
+
+        //Checks if clip is empty.
+        if (ScarClip == 0)
+        {
+
+            ScarCanShoot = false;
+
+
+        }
+
+        //Ensure the scar clip record cant exceed 30. 
+        if (ScarClipRecord == 30)
+        {
+
+            ScarClipRecord = 30;
+
+
+        }
+
+        //Reload your gun.
+        if (Input.GetKeyDown (KeyCode.R))
+        {
+
+            ScarMags -= ScarClipRecord;
+            ScarCanShoot = true;
+            ScarClip = 30;
+            ScarClipRecord = 0;
+            scarSpread = 0;
+            scarSpreadCollection = 0;
+
+
+        }
+
+        //Can't shoot if no mags.
+        if (ScarMags <= 0)
+        {
+
+            ScarCanShoot = false;
+
+
+        }
+
+        //replenish ammo test
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+
+
+            ScarMags = 270;
+            ScarClip = 30;
+            ScarClipRecord = 0;
+
+        }
+
+
+        Debug.Log(scarSpread);
+        Debug.Log(ScarClip);
+        Debug.Log(ScarMags);
+
+
+        //Expands crosshair depending on current scar spread.
+        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, scarSpread, 0) * 1024;
+        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -scarSpread, 0) * 1024;
+        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(scarSpread, 0, 0) * 1024;
+        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-scarSpread, 0, 0) * 1024;
 
 
         //If you are holding down aim
@@ -229,44 +362,49 @@ public class pl_shoot : MonoBehaviour {
 
 
 
-            animtwo.SetBool("IsADS", true);
-            animone.SetBool("IsADS", true);
-            scarSpread = 0.01f;
-            isADS = true;
+            //hides crosshair when aim
+            Scarch1.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            Scarch2.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            Scarch3.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            Scarch4.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            Scaranimtwo.SetBool("IsADS", true);
+            Scaranimone.SetBool("IsADS", true);
+            scarSpread = 0;
+            ScarisADS = true;
             cPMPlayer.moveSpeed = 5;
             cPMPlayer.runDeacceleration = 2.5f;
             cPMPlayer.runAcceleration = 4;
 
 
-            audioranm = Random.Range(1, 3);
+            Scaraudioranm = Random.Range(1, 3);
 
 
-            if (audioranm == 1)
+            if (Scaraudioranm == 1)
             {
 
 
-                m1.pitch = Random.Range(0.8f, 1);
-                m1.Play();
+                Scarm1.pitch = Random.Range(0.8f, 1);
+                Scarm1.Play();
             }
 
 
-            if (audioranm == 2)
+            if (Scaraudioranm == 2)
             {
 
 
-                m2.pitch = Random.Range(0.8f, 1);
-                m2.Play();
+                Scarm2.pitch = Random.Range(0.8f, 1);
+                Scarm2.Play();
             }
 
 
 
-            if (audioranm == 3)
+            if (Scaraudioranm == 3)
             {
 
 
-                m3.pitch = Random.Range(0.8f, 1);
-                m3.Play();
-                
+                Scarm3.pitch = Random.Range(0.8f, 1);
+                Scarm3.Play();
+
 
             }
 
@@ -278,39 +416,43 @@ public class pl_shoot : MonoBehaviour {
         if (Input.GetMouseButtonUp(1))
         {
 
+            Scarch1.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            Scarch2.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            Scarch3.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            Scarch4.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
+            Scaranimtwo.SetBool("IsADS", false);
+            Scaranimone.SetBool("IsADS", false);
 
-            animtwo.SetBool("IsADS", false);
-            animone.SetBool("IsADS", false);
-            scarSpread = 0.01f;
-            isADS = false;
+            scarSpread = 0;
+            ScarisADS = false;
             cPMPlayer.moveSpeed = 7;
             cPMPlayer.runDeacceleration = 5;
             cPMPlayer.runAcceleration = 6;
 
 
-            if (audioranm == 1)
+            if (Scaraudioranm == 1)
             {
 
 
-                m1.Stop();
+                Scarm1.Stop();
             }
 
 
-            if (audioranm == 2)
+            if (Scaraudioranm == 2)
             {
 
 
-                m2.Stop();
+                Scarm2.Stop();
             }
 
 
 
-            if (audioranm == 3)
+            if (Scaraudioranm == 3)
             {
 
 
-                m3.Stop();
+                Scarm3.Stop();
 
 
             }
@@ -322,7 +464,7 @@ public class pl_shoot : MonoBehaviour {
 
         //Do something after death.
 
-        if (Health <0)
+        if (Health < 0)
         {
 
             Debug.Log("You have died");
@@ -338,19 +480,28 @@ public class pl_shoot : MonoBehaviour {
         {
 
 
-
+            //sets crosshair back to normal
             CHNormal();
 
         }
 
 
-        //Shoot Weapon
-        if (Input.GetMouseButton (0) && Time.time >= nextTimeToFire)
+        //Shoot Weapon (this calls the shoot void)
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
 
 
-            nextTimeToFire = Time.time + 0.035f / fireRate;
-            Shoot();
+            nextTimeToFire = Time.time + 0.5f / ScarfireRate;
+
+
+
+
+            if (ScarCanShoot == true)
+            {
+
+                ScarShoot();
+
+            }
 
         }
     }

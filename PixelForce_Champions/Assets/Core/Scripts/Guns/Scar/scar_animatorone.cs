@@ -22,7 +22,7 @@ public class scar_animatorone : MonoBehaviour {
 
         //Check if we are moving to update animator.
 
-        if (cPMPlayer.testbool == false)
+        if (cPMPlayer.isMoving == false)
         {
 
 
@@ -33,7 +33,7 @@ public class scar_animatorone : MonoBehaviour {
 
 
 
-        if (cPMPlayer.testbool == true)
+        if (cPMPlayer.isMoving == true)
         {
 
 

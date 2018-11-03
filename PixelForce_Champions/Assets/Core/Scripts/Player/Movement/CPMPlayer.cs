@@ -63,7 +63,7 @@ public class CPMPlayer : MonoBehaviour
     public bool holdJumpToBhop = false;           // When enabled allows player to just hold jump button to keep on bhopping perfectly. Beware: smells like casual.
     public bool isMovingForward = false;
     public bool isMovingSideways = false;
-    public bool testbool = false;
+    public bool isMoving = false;
 
     /*print() style */
     public GUIStyle style;
@@ -124,8 +124,8 @@ public class CPMPlayer : MonoBehaviour
         if (_cmd.forwardMove != 0)
         {
 
-            testbool = true;
-            Debug.Log("you are moving forward");
+            isMoving = true;
+ 
 
 
 
@@ -135,8 +135,8 @@ public class CPMPlayer : MonoBehaviour
         else
         {
 
-            testbool = false;
-            Debug.Log("you are not walking");
+            isMoving = false;
+
 
         }
 
@@ -144,8 +144,8 @@ public class CPMPlayer : MonoBehaviour
         if (_cmd.rightMove != 0)
         {
 
-            testbool = true;
-            Debug.Log("you are moving forward");
+            isMoving = true;
+
 
         }
 
