@@ -44,6 +44,7 @@ public class CPMPlayer : MonoBehaviour
     public float playerViewYOffset = 0.6f; // The height at which the camera is bound to
     public float xMouseSensitivity = 30.0f;
     public float yMouseSensitivity = 30.0f;
+    public FixedTouchField fixedTouch;
 //
     /*Frame occuring factors*/
     public float gravity = 20.0f;
@@ -97,8 +98,8 @@ public class CPMPlayer : MonoBehaviour
     private void Start()
     {
         // Hide the cursor
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         if (playerView == null)
         {
@@ -159,16 +160,11 @@ public class CPMPlayer : MonoBehaviour
             fps = Mathf.Round(frameCount / dt);
             frameCount = 0;
             dt -= 1.0f / fpsDisplayRate;
-                 }
-        /* Ensure that the cursor is locked into the screen */
-        if (Cursor.lockState != CursorLockMode.Locked) {
-            if (Input.GetButtonDown("Fire1"))
-                Cursor.lockState = CursorLockMode.Locked;
         }
 
         /* Camera rotation stuff, mouse controls this shit */
-        rotX -= Input.GetAxisRaw("Mouse Y") * xMouseSensitivity * 0.02f;
-        rotY += Input.GetAxisRaw("Mouse X") * yMouseSensitivity * 0.02f;
+        rotX -= fixedTouch.TouchDist.y * xMouseSensitivity * 0.02f;
+        rotY += fixedTouch.TouchDist.x * yMouseSensitivity * 0.02f;
 
         // Clamp the X rotation
         if(rotX < -90)
@@ -214,8 +210,8 @@ public class CPMPlayer : MonoBehaviour
      */
     private void SetMovementDir()
     {
-        _cmd.forwardMove = Input.GetAxisRaw("Vertical");
-        _cmd.rightMove   = Input.GetAxisRaw("Horizontal");
+        _cmd.forwardMove = UltimateJoystick.GetVerticalAxis("Player");
+        _cmd.rightMove = UltimateJoystick.GetHorizontalAxis("Player");
 
 
     }

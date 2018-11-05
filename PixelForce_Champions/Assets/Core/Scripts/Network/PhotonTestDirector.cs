@@ -34,7 +34,7 @@ public class PhotonTestDirector : MonoBehaviour {
     {
 
         Debug.Log("You have joined the test room");
-        PhotonNetwork.Instantiate("First-Person Character", SpawnPointTest.position, SpawnPointTest.rotation, 0);
+        PhotonNetwork.Instantiate("PlayerObject", SpawnPointTest.position, SpawnPointTest.rotation, 0);
 
     }
 
