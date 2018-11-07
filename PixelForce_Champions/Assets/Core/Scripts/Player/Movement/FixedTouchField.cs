@@ -52,5 +52,5 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         Pressed = false;
     }
-    
+
 }

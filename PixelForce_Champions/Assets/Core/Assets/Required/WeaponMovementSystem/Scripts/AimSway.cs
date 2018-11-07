@@ -35,19 +35,19 @@ public class AimSway : MonoBehaviour
 	{
 
 		// If the mouse is moving
-		if (touchfieldsway.TouchDist.x != 0 || touchfieldsway.TouchDist.y != 0)
+		if (Input.GetAxis ("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
 		{
 			// Tilt in Y.
-			float TiltY = Mathf.Clamp(touchfieldsway.TouchDist.x * -swayAngle, -maxSwayAngle, maxSwayAngle);
+			float TiltY = Mathf.Clamp(Input.GetAxis("Mouse X") * -swayAngle, -maxSwayAngle, maxSwayAngle);
 
 			// Tilt in X.
-			float TiltX = Mathf.Clamp(touchfieldsway.TouchDist.y * swayAngle, -maxSwayAngle, maxSwayAngle);
+			float TiltX = Mathf.Clamp(Input.GetAxis("Mouse Y") * swayAngle, -maxSwayAngle, maxSwayAngle);
 			float TiltZ;
 			// Tilt in Z.
 			if (controllerRigidbody != null)
 			{
 				TiltZ = controllerRigidbody.velocity.magnitude >= 1.5f ?
-					Mathf.Clamp(touchfieldsway.TouchDist.x * -swayAngle, -maxSwayAngle, maxSwayAngle) : 0;
+					Mathf.Clamp(Input.GetAxis("Mouse X") * -swayAngle, -maxSwayAngle, maxSwayAngle) : 0;
 			}
 			else
 				TiltZ = 0;

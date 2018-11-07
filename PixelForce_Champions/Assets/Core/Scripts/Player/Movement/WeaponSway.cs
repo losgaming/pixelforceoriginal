@@ -2,65 +2,44 @@
 
 public class WeaponSway : MonoBehaviour
 {
-
-
-    public float amount = 0.055f;
-    public float maxAmount = 0.09f;
-    public float smooth = 3f;
-    private Vector3 def;
-    private Vector2 defAth;
-    private Vector3 euler;
-    private readonly GameObject ath;
+    public float amount = 0.02f;
+    public float maxamount = 0.03f;
+    public float smooth = 3;
+    private Quaternion def;
     public FixedTouchField fixedTouchField;
 
-    // Use this for initialization
-    private void Start()
+
+    void Start()
     {
-
-
-        def = transform.localPosition;
-        euler = transform.localEulerAngles;
-
+        def = transform.localRotation;
     }
 
-
-
-
-    float _smooth;
-
-    // Update is called once per frame
-    private void Update()
+    void Update()
     {
 
+        float factorZ = -(fixedTouchField.TouchDist.x) * amount;
+        //float factorY = -(Input.GetAxis("Jump")) * amount;
+        //float factorZ = -Input.GetAxis("Vertical") * amount;
 
+        //if (factorX > maxamount)
+        //factorX = maxamount;
 
+        //if (factorX < -maxamount)
+        //factorX = -maxamount;
 
-        _smooth = smooth;
+        //if (factorY > maxamount)
+        //factorY = maxamount;
 
+        //if (factorY < -maxamount)
+        //factorY = -maxamount;
 
-        float factorX = -fixedTouchField.TouchDist.x * amount;
-        float factorY = -fixedTouchField.TouchDist.y * amount;
+        if (factorZ > maxamount)
+            factorZ = maxamount;
 
+        if (factorZ < -maxamount)
+            factorZ = -maxamount;
 
-
-        if (factorX > maxAmount)
-            factorX = maxAmount;
-
-        if (factorX < -maxAmount)
-            factorX = -maxAmount;
-
-
-        if (factorY > maxAmount)
-            factorY = maxAmount;
-
-        if (factorY < -maxAmount)
-            factorY = -maxAmount;
-
-
-
-        Vector3 final = new Vector3(def.x + factorX, def.y + factorY, def.z);
-        transform.localPosition = Vector3.Lerp(transform.localPosition, final, Time.deltaTime * _smooth);
-
-
+        Quaternion Final = Quaternion.Euler(0, 0, def.z + factorZ);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Final, (Time.deltaTime * amount) * smooth);
     }
 }
