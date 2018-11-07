@@ -22,7 +22,10 @@ public class AimSway : MonoBehaviour
 	public Rigidbody controllerRigidbody;	// the Rigidbody from this character
 	private bool moving = false;			// is moving to aimposition or to original position
 	private Quaternion normalRotation;
-    public FixedTouchField touchfieldsway;
+    public FixedTouchField fixedTouchField;
+
+
+    
 	// Use this for initialization
 	void Start()
 	{
@@ -35,19 +38,19 @@ public class AimSway : MonoBehaviour
 	{
 
 		// If the mouse is moving
-		if (Input.GetAxis ("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+		if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
 		{
 			// Tilt in Y.
-			float TiltY = Mathf.Clamp(Input.GetAxis("Mouse X") * -swayAngle, -maxSwayAngle, maxSwayAngle);
+			float TiltY = Mathf.Clamp(fixedTouchField.TouchDist.x * -swayAngle /2 , -maxSwayAngle /2 , maxSwayAngle /2 );
 
 			// Tilt in X.
-			float TiltX = Mathf.Clamp(Input.GetAxis("Mouse Y") * swayAngle, -maxSwayAngle, maxSwayAngle);
+			float TiltX = Mathf.Clamp(fixedTouchField.TouchDist.y * swayAngle /3, -maxSwayAngle /3 , maxSwayAngle /3 );
 			float TiltZ;
 			// Tilt in Z.
 			if (controllerRigidbody != null)
 			{
-				TiltZ = controllerRigidbody.velocity.magnitude >= 1.5f ?
-					Mathf.Clamp(Input.GetAxis("Mouse X") * -swayAngle, -maxSwayAngle, maxSwayAngle) : 0;
+				TiltZ = controllerRigidbody.velocity.magnitude >= 0 ?
+					Mathf.Clamp(fixedTouchField.TouchDist.x * -swayAngle , -maxSwayAngle , maxSwayAngle ) : 0;
 			}
 			else
 				TiltZ = 0;
@@ -56,12 +59,12 @@ public class AimSway : MonoBehaviour
 
 			// Moves the weapon from the current rotation to the end rotation.
 			if(!moving)
-				swayTarget.localRotation = Quaternion.Lerp(swayTarget.localRotation, newRotation, Time.deltaTime * swaySmooth);
+				swayTarget.localRotation = Quaternion.Slerp(swayTarget.localRotation, newRotation, Time.deltaTime * swaySmooth);
 		}
 		else
 		{
 			// If the mouse input is zero (Vector2.zero), reset it to its original position.
-			swayTarget.localRotation = Quaternion.Lerp(swayTarget.localRotation, normalRotation, Time.deltaTime * swaySmooth);
+			swayTarget.localRotation = Quaternion.Slerp(swayTarget.localRotation, normalRotation, Time.deltaTime * swaySmooth);
 		}
 	}
 }
