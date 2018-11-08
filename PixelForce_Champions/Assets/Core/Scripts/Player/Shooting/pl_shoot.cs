@@ -357,7 +357,7 @@ public class pl_shoot : MonoBehaviour
 
 
         //If you are holding down aim
-        if (Input.GetMouseButtonDown(2)) // change this number to "1" in order to aim with right mouse click again.
+        if (Input.GetMouseButtonDown(1))
         {
 
 
@@ -413,7 +413,7 @@ public class pl_shoot : MonoBehaviour
 
 
         //If you let go of aim
-        if (Input.GetMouseButtonUp(2)) // change this number to "1" in order to aim with right mouse click again.
+        if (Input.GetMouseButtonUp(1))
         {
 
             Scarch1.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);

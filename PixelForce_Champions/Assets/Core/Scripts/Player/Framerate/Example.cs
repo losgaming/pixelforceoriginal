@@ -8,7 +8,7 @@ public class Example : MonoBehaviour
     void Start()
     {
         // Make the game run as fast as possible
-        Application.targetFrameRate = 100000;
+        Application.targetFrameRate = 3000;
     }
 
 
@@ -16,7 +16,7 @@ public class Example : MonoBehaviour
     private void Update()
     {
         // Make the game run as fast as possible
-        Application.targetFrameRate = 100000;
+        Application.targetFrameRate = 3000;
     }
 }
 
