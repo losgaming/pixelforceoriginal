@@ -14,6 +14,9 @@ public class pl_shoot : MonoBehaviour
 
 
 
+    //Aim sway scipt reference
+    public AimSway aimSway;
+
 
     //When player dies.
     public GameObject BloodScreen;
@@ -86,13 +89,13 @@ public class pl_shoot : MonoBehaviour
     {
 
         //sets crosshair to normal position when started
-        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
-        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
-        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
-        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
+        //Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
+        //Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
+        //Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
+        //Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
 
-        scarSpread = 0;
-        scarSpreadCollection = 0;
+        scarSpread = 0.01f;
+        scarSpreadCollection = 0.01f;
 
 
     }
@@ -120,20 +123,17 @@ public class pl_shoot : MonoBehaviour
     }
 
 
-    //Cross hair goes back to normal position after I stop shooting.
+    //Cross hair goes back to normal position after I stop shooting. (STOP SHOOTING FUNCTION)
     public void CHNormal()
     {
 
-        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, 30, 0);
-        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -30, 0);
-        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(30, 0, 0);
-        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-30, 0, 0);
 
 
 
         //sets the spread back to normal when i stop shooting
-        scarSpread = 0;
-        scarSpreadCollection = 0;
+        scarSpread = 0.01f;
+        scarSpreadCollection = 0.01f;
+
 
     }
 
@@ -296,6 +296,8 @@ public class pl_shoot : MonoBehaviour
         {
 
             ScarCanShoot = false;
+            scarSpread = 0.01f;
+            scarSpreadCollection = 0.01f;
 
 
         }
@@ -317,8 +319,8 @@ public class pl_shoot : MonoBehaviour
             ScarCanShoot = true;
             ScarClip = 30;
             ScarClipRecord = 0;
-            scarSpread = 0;
-            scarSpreadCollection = 0;
+            scarSpread = 0.01f;
+            scarSpreadCollection = 0.01f;
 
 
         }
@@ -328,6 +330,8 @@ public class pl_shoot : MonoBehaviour
         {
 
             ScarCanShoot = false;
+            scarSpread = 0.01f;
+            scarSpreadCollection = 0.01f;
 
 
         }
@@ -349,11 +353,11 @@ public class pl_shoot : MonoBehaviour
         Debug.Log(ScarMags);
 
 
-        //Expands crosshair depending on current scar spread.
-        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, scarSpread, 0) * 1024;
-        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -scarSpread, 0) * 1024;
-        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(scarSpread, 0, 0) * 1024;
-        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-scarSpread, 0, 0) * 1024;
+        //Expands crosshair depending on current scar spread. (UPDATE FUNTION)
+        Scarch1.GetComponent<RectTransform>().localPosition = new Vector3(0, scarSpread, 0) * 512;
+        Scarch2.GetComponent<RectTransform>().localPosition = new Vector3(0, -scarSpread, 0) * 512;
+        Scarch3.GetComponent<RectTransform>().localPosition = new Vector3(scarSpread, 0, 0) * 512;
+        Scarch4.GetComponent<RectTransform>().localPosition = new Vector3(-scarSpread, 0, 0) * 512;
 
 
         //If you are holding down aim
@@ -370,10 +374,15 @@ public class pl_shoot : MonoBehaviour
             Scaranimtwo.SetBool("IsADS", true);
             Scaranimone.SetBool("IsADS", true);
             scarSpread = 0;
+            scarSpreadCollection = 0;
             ScarisADS = true;
             cPMPlayer.moveSpeed = 5;
             cPMPlayer.runDeacceleration = 2.5f;
             cPMPlayer.runAcceleration = 4;
+            aimSway.maxSwayAngle = 2;
+            aimSway.swayAngle = 2;
+            aimSway.swaySmooth = 20;
+            
 
 
             Scaraudioranm = Random.Range(1, 3);
@@ -424,11 +433,15 @@ public class pl_shoot : MonoBehaviour
             Scaranimtwo.SetBool("IsADS", false);
             Scaranimone.SetBool("IsADS", false);
 
-            scarSpread = 0;
+            scarSpread = 0.01f;
+            scarSpreadCollection = 0.01f;
             ScarisADS = false;
             cPMPlayer.moveSpeed = 7;
             cPMPlayer.runDeacceleration = 5;
             cPMPlayer.runAcceleration = 6;
+            aimSway.maxSwayAngle = 14;
+            aimSway.swayAngle = 7;
+            aimSway.swaySmooth = 8;
 
 
             if (Scaraudioranm == 1)
