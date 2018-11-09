@@ -504,7 +504,7 @@ public class pl_shoot : MonoBehaviour
         {
 
 
-            nextTimeToFire = Time.time + 0.5f / ScarfireRate;
+            nextTimeToFire = Time.time + 0.8f / ScarfireRate;
 
 
 
