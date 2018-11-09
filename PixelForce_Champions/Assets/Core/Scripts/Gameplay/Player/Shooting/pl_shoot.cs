@@ -203,8 +203,8 @@ public class pl_shoot : MonoBehaviour
         if (ScarisADS == false)
         {
 
-            cPMPlayer.rotX += Random.Range(-2.6f, -3);
-            cPMPlayer.rotY += Random.Range(-2f, 1.7f);
+            cPMPlayer.rotX += Random.Range(-1.15f, -1.35f);
+            cPMPlayer.rotY += Random.Range(-1.15f, 1.30f);
 
         }
 
@@ -214,8 +214,8 @@ public class pl_shoot : MonoBehaviour
         {
 
 
-            cPMPlayer.rotX += Random.Range(-1, -2.4f);
-            cPMPlayer.rotY += Random.Range(-1f, 1);
+            cPMPlayer.rotX += Random.Range(-0.9f, -0.75f);
+            cPMPlayer.rotY += Random.Range(-0.9f, 0.55f);
 
         }
 
