@@ -240,7 +240,7 @@ public class pl_shoot : MonoBehaviour
 
         }
 
-        PhotonNetwork.Instantiate("MuzzleFlash", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
+        //PhotonNetwork.Instantiate("MuzzleFlash", Scar_MFSpawnPoint.position, Scar_MFSpawnPoint.rotation, 0);
         Ray ray = cam.ViewportPointToRay(new Vector3(0, 0, 0));
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + Random.insideUnitSphere * scarSpread, out hit))

@@ -120,6 +120,31 @@ public class CPMPlayer : MonoBehaviour
     {
 
 
+
+        //Sprint
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+
+
+
+            moveSpeed = 8.4f;
+
+
+        }
+
+        //Stop sprinting
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+
+
+
+            moveSpeed = 7f;
+
+
+        }
+
+
+
         //Checks if we are moving.
         if (_cmd.forwardMove != 0)
         {

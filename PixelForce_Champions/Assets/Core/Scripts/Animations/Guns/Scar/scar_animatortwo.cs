@@ -18,6 +18,29 @@ public class scar_animatortwo : MonoBehaviour {
 
 
 
+
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+
+
+            animtwo.SetBool("IsSprint", true);
+
+
+        }
+
+        else
+        {
+
+
+            animtwo.SetBool("IsSprint", false);
+
+
+        }
+
+
+
+
         //Check if we are moving to update animator.
 
         if (cPMPlayer.isMoving == false)
