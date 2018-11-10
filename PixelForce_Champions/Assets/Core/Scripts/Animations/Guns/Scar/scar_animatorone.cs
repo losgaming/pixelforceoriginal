@@ -9,10 +9,12 @@ public class scar_animatorone : MonoBehaviour {
 
     public Animator animone;
     public CPMPlayer cPMPlayer;
+    public float ShootInterrupt = 0;
+    public bool canShift = true;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,12 +22,39 @@ public class scar_animatorone : MonoBehaviour {
 	void Update () {
 
 
-
-
-        if(Input.GetKey(KeyCode.LeftShift))
+        //Shoot interrupts sprint
+        if (Input.GetMouseButton(0))
         {
 
 
+            animone.SetBool("IsSprint", false);
+            canShift = false;
+            cPMPlayer.moveSpeed = 7;
+
+        }
+
+
+        //Not shooting
+        else
+        {
+
+
+
+            animone.SetBool("IsSprint", false);
+            canShift = true;
+
+
+
+        }
+
+
+
+
+        if (Input.GetKey(KeyCode.LeftShift) && canShift == true)
+        {
+
+            cPMPlayer.moveSpeed = 8.4f;
+            ShootInterrupt = 1;
             animone.SetBool("IsSprint", true);
 
 
@@ -33,12 +62,14 @@ public class scar_animatorone : MonoBehaviour {
 
         else
         {
-
-
+            cPMPlayer.moveSpeed = 7;
+            ShootInterrupt = 0;
             animone.SetBool("IsSprint", false);
 
 
         }
+
+
 
 
 

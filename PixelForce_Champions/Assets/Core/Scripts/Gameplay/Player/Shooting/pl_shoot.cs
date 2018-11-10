@@ -4,6 +4,10 @@ public class pl_shoot : MonoBehaviour
 {
 
 
+    //Scar anims
+    public scar_animatorone scar_Animatorone;
+    public scar_animatortwo scar_Animatortwo;
+
 
     //Where the raycast come from.
     public Camera cam;
@@ -148,7 +152,7 @@ public class pl_shoot : MonoBehaviour
     {
 
 
-
+        
 
         ScarClipRecord += 1;
         ScarClip -= 1;
@@ -291,6 +295,7 @@ public class pl_shoot : MonoBehaviour
 
 
 
+
         //Checks if clip is empty.
         if (ScarClip == 0)
         {
@@ -348,9 +353,9 @@ public class pl_shoot : MonoBehaviour
         }
 
 
-        Debug.Log(scarSpread);
-        Debug.Log(ScarClip);
-        Debug.Log(ScarMags);
+        //Debug.Log(scarSpread);
+        //Debug.Log(ScarClip);
+        //Debug.Log(ScarMags);
 
 
         //Expands crosshair depending on current scar spread. (UPDATE FUNTION)
