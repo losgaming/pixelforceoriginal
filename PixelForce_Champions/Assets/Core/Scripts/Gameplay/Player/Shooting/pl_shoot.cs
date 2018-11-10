@@ -381,9 +381,9 @@ public class pl_shoot : MonoBehaviour
             scarSpread = 0;
             scarSpreadCollection = 0;
             ScarisADS = true;
-            cPMPlayer.moveSpeed = 5;
-            cPMPlayer.runDeacceleration = 2.5f;
-            cPMPlayer.runAcceleration = 4;
+            cPMPlayer.moveSpeed = 2.8f;
+            cPMPlayer.runDeacceleration = 2.3f;
+            cPMPlayer.runAcceleration = 2.8f;
             aimSway.maxSwayAngle = 2;
             aimSway.swayAngle = 2;
             aimSway.swaySmooth = 20;

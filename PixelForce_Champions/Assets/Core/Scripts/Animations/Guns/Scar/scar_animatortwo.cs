@@ -21,8 +21,33 @@ public class scar_animatortwo : MonoBehaviour {
 
 
 
+
+        //ADS interrupts sprint
+        if (Input.GetMouseButton(1))
+        {
+
+
+            animtwo.SetBool("IsSprint", false);
+            animtwo.SetBool("IsADS", true);
+            canShift = false;
+
+        }
+
+
+        //Is no longer ADS
+        if (Input.GetMouseButtonUp(1))
+        {
+
+            animtwo.SetBool("IsADS", false);
+            canShift = true;
+
+        }
+
+
+
+
         //Shoot interrupts sprint
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
 
 
@@ -33,16 +58,13 @@ public class scar_animatortwo : MonoBehaviour {
         }
 
 
-        //Not shooting
-        else
+        //Not shooting.
+        if (Input.GetMouseButtonUp(0))
         {
-
 
 
             animtwo.SetBool("IsSprint", false);
             canShift = true;
-
-
 
 
         }

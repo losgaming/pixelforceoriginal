@@ -10,7 +10,9 @@ public class scar_animatorone : MonoBehaviour {
     public Animator animone;
     public CPMPlayer cPMPlayer;
     public float ShootInterrupt = 0;
+    public float ADSInterrupt = 0;
     public bool canShift = true;
+    public bool canADSI = true;
 
 
     // Use this for initialization
@@ -20,6 +22,31 @@ public class scar_animatorone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+
+        //ADS interrupts sprint
+        if (Input.GetMouseButton(1))
+        {
+
+
+            animone.SetBool("IsSprint", false);
+            animone.SetBool("IsADS", true);
+            canShift = false;
+
+        }
+
+
+        //Is no longer ADS
+        if (Input.GetMouseButtonUp(1))
+        {
+
+            animone.SetBool("IsADS", false);
+            canShift = true;
+
+        }
+
 
 
         //Shoot interrupts sprint
@@ -34,19 +61,17 @@ public class scar_animatorone : MonoBehaviour {
         }
 
 
-        //Not shooting
-        else
-        {
 
+        //Not shooting.
+        if (Input.GetMouseButtonUp(0))
+        {
 
 
             animone.SetBool("IsSprint", false);
             canShift = true;
 
 
-
         }
-
 
 
 
