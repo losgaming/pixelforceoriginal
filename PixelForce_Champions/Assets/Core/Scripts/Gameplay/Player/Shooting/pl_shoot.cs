@@ -87,6 +87,12 @@ public class pl_shoot : MonoBehaviour
     public bool ScarCanShoot = true;
 
 
+    //Hit indicator (marker)
+    public AudioSource hitmarker;
+    public AudioSource hitmarker2;
+    public int hitmarkerrand = 0;
+
+
 
 
     private void Start()
@@ -175,18 +181,20 @@ public class pl_shoot : MonoBehaviour
         Scaraudioran = Random.Range(1, 3);
 
 
-
+        //Random shoot noice with pitch (volume (0.7f, 0.8f)
         if (Scaraudioran == 1)
         {
-            ScaraudioSourceShoot.pitch = (Random.Range(0.8f, 1.0f));
+
+            ScaraudioSourceShoot.volume = (Random.Range(0.35f, 0.45f));
+            ScaraudioSourceShoot.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot.Play();
 
         }
 
         if (Scaraudioran == 2)
         {
-
-            ScaraudioSourceShoot1.pitch = (Random.Range(0.8f, 1.0f));
+            ScaraudioSourceShoot1.volume = (Random.Range(0.35f, 0.45f));
+            ScaraudioSourceShoot1.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot1.Play();
 
         }
@@ -194,8 +202,8 @@ public class pl_shoot : MonoBehaviour
 
         if (Scaraudioran == 3)
         {
-
-            ScaraudioSourceShoot2.pitch = (Random.Range(0.8f, 1.0f));
+            ScaraudioSourceShoot2.volume = (Random.Range(0.35f, 0.45f));
+            ScaraudioSourceShoot2.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot2.Play();
 
 
@@ -259,8 +267,42 @@ public class pl_shoot : MonoBehaviour
 
 
 
+        //If we hit a test object with a tag "Test" do something.
+        if (hit.collider.tag == "Test")
+        {
 
 
+            hitmarkerrand = Random.Range(1, 2);
+
+
+            if (hitmarkerrand == 1 )
+            {
+
+
+                hitmarker.pitch = Random.Range(0.8f, 1f);
+                hitmarker.Play();
+
+
+            }
+
+
+
+
+            if (hitmarkerrand == 2)
+            {
+
+                hitmarker2.pitch = Random.Range(0.8f, 1f);
+                hitmarker2.Play();
+
+
+            }
+
+
+
+
+        }
+
+        //If we hit a player with photonview do something.
         if (hit.collider.tag == "Enemy")
         {
 

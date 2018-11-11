@@ -94,6 +94,7 @@ public class scar_animatorone : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftShift) && canShift == true)
         {
 
+
             cPMPlayer.moveSpeed = 8.4f;
             ShootInterrupt = 1;
             animone.SetBool("IsSprint", true);
@@ -103,6 +104,9 @@ public class scar_animatorone : MonoBehaviour {
 
         else
         {
+
+
+
             cPMPlayer.moveSpeed = 7;
             ShootInterrupt = 0;
             animone.SetBool("IsSprint", false);
