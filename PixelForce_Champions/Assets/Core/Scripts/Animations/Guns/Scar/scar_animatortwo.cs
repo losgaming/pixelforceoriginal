@@ -19,6 +19,23 @@ public class scar_animatortwo : MonoBehaviour {
 	void Update () {
 
 
+        //Makes sure you can only sprint when moving
+        if (cPMPlayer.isMoving == false)
+        {
+
+
+            canShift = false;
+
+        }
+
+        else
+        {
+
+            canShift = true;
+
+        }
+
+
 
 
 

@@ -10,9 +10,7 @@ public class scar_animatorone : MonoBehaviour {
     public Animator animone;
     public CPMPlayer cPMPlayer;
     public float ShootInterrupt = 0;
-    public float ADSInterrupt = 0;
     public bool canShift = true;
-    public bool canADSI = true;
 
 
     // Use this for initialization
@@ -22,6 +20,24 @@ public class scar_animatorone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+        //Makes sure you can only sprint when moving
+        if (cPMPlayer.isMoving == false)
+        {
+
+
+            canShift = false;
+
+        }
+
+        else
+        {
+
+            canShift = true;
+
+        }
 
 
 
