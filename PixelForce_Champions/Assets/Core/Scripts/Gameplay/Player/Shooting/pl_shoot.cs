@@ -175,7 +175,9 @@ public class pl_shoot : MonoBehaviour
         Scaranimtwo.SetBool("IsShoot", true);
 
 
-        Invoke("AnimSetFalse", 0.05f);
+
+        //Dont set too high or animation will stay at the end for a long time. This needs to happen quick. Recommended amount (0.1f) on any fire animation.
+        Invoke("AnimSetFalse", 0.1f);
 
 
         Scaraudioran = Random.Range(1, 3);
@@ -238,7 +240,7 @@ public class pl_shoot : MonoBehaviour
         if (ScarisADS == false)
         {
 
-            scarSpreadCollection += 0.00083f;
+            scarSpreadCollection += 0.00035f;
 
         }
 
@@ -248,7 +250,7 @@ public class pl_shoot : MonoBehaviour
         {
 
 
-            scarSpreadCollection += 0.00041f;
+            scarSpreadCollection += 0.00020f;
 
         }
 
@@ -551,7 +553,7 @@ public class pl_shoot : MonoBehaviour
         {
 
 
-            nextTimeToFire = Time.time + 0.8f / ScarfireRate;
+            nextTimeToFire = Time.time + 0.66f / ScarfireRate; //Scar default (0.66f)
 
 
 
