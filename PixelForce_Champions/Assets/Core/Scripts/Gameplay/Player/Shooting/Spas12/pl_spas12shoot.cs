@@ -225,7 +225,7 @@ public class pl_spas12shoot : MonoBehaviour
         if (ScarisADS == false)
         {
 
-            cPMPlayer.rotX += Random.Range(-1.15f, -1.35f);
+            cPMPlayer.rotX += Random.Range(-12, -24f);
             cPMPlayer.rotY += Random.Range(-1.15f, 1.30f);
 
         }
@@ -236,7 +236,7 @@ public class pl_spas12shoot : MonoBehaviour
         {
 
 
-            cPMPlayer.rotX += Random.Range(-0.9f, -0.75f);
+            cPMPlayer.rotX += Random.Range(-6f, -12f);
             cPMPlayer.rotY += Random.Range(-0.9f, 0.55f);
 
         }
