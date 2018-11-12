@@ -195,7 +195,7 @@ public class FootstepSystem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Debug.Log(runDetection.isRunning);
+
 
         //If players runs footsteps get played at a faster rate.
         if (runDetection.isRunning == true)
