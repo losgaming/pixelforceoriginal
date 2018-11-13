@@ -4,16 +4,18 @@ public class pl_spas12shoot : MonoBehaviour
 {
 
 
+
+
+    //pl_health reference script
+    public pl_health pl_Health;
+
+
     //Scar anims
     public spas_animator scar_Animatorone;
 
 
     //Where the raycast come from.
     public Camera cam;
-
-
-    //Player Health.
-    public float Health = 90f;
 
 
 
@@ -117,16 +119,6 @@ public class pl_spas12shoot : MonoBehaviour
 
 
     }
-
-
-
-    //pun rpc 
-    //[PunRPC]
-    //private void TakeDamage()
-    //{
-        //Health -= 10f;
-
-    //}
 
 
 
@@ -317,8 +309,41 @@ public class pl_spas12shoot : MonoBehaviour
         if (hit.collider.tag == "Enemy")
         {
 
-            hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
+            hit.collider.GetComponent<PhotonView>().RPC("SPAS12TakeDamage", PhotonTargets.AllBuffered);
             PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+
+
+
+
+
+            hitmarkerrand = Random.Range(1, 2);
+
+
+            if (hitmarkerrand == 1)
+            {
+
+
+                hitmarker.pitch = Random.Range(0.8f, 1f);
+                hitmarker.Play();
+
+
+            }
+
+
+
+
+            if (hitmarkerrand == 2)
+            {
+
+                hitmarker2.pitch = Random.Range(0.8f, 1f);
+                hitmarker2.Play();
+
+
+            }
+
+
+
+
 
         }
 
@@ -531,22 +556,14 @@ public class pl_spas12shoot : MonoBehaviour
 
 
 
-        //Do something after death.
-
-        if (Health < 0)
-        {
-
-            Debug.Log("You have died");
-            BloodScreen.SetActive(true);
-        }
-
-
 
 
 
         //Shoot weapon let go
         if (Input.GetMouseButtonUp(0))
         {
+
+
 
 
             //sets crosshair back to normal
@@ -558,6 +575,13 @@ public class pl_spas12shoot : MonoBehaviour
         //Shoot Weapon (this calls the shoot void)
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
+
+
+
+
+
+
+
 
 
             nextTimeToFire = Time.time + 2f / ScarfireRate; //Scar default (0.65f)

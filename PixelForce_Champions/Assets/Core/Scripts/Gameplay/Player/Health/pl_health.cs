@@ -5,37 +5,55 @@ using UnityEngine;
 public class pl_health : MonoBehaviour {
 
 
+    //Main player health variable. 
+    public float plhealth  = 100f;
 
-    public float plhealth  = 90f;
-
-
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-
-
-
-    //pun rpc 
+    //Scar damage
     [PunRPC]
-    private void TakeDamage()
+    private void ScarTakeDamage()
     {
-        plhealth -= 5f;
+
+        plhealth -= 5;
         Debug.Log(plhealth);
 
+    }
 
-       
+    //Spas12 damage
+    [PunRPC]
+    private void SPAS12TakeDamage()
+    {
+
+        plhealth -= 11;
+        Debug.Log(plhealth);
+
+    }
+
+    void Update () {
+
+
+
+
+        //What happens after your player dies.
+        if (plhealth < 0)
+        {
+
+
+            Debug.Log("Player character has died.");
+
+
+        }
+
+        if (plhealth == 0)
+        {
+
+
+            Debug.Log("Player character has died.");
+
+
+        }
+
 
 
 
     }
-
-    // Update is called once per frame
-    void Update () {
-
-
-		
-	}
 }

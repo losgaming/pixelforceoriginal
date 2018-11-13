@@ -11,6 +11,8 @@ public class SwitchWeapons : MonoBehaviour {
 
 
 
+
+
     //Visual weapon.
     //FN SCAR
     public Renderer scarrend;
