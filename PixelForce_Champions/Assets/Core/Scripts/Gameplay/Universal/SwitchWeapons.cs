@@ -13,14 +13,14 @@ public class SwitchWeapons : MonoBehaviour {
 
     //Visual weapon.
     //FN SCAR
-    public GameObject ScarRender;
-    public GameObject ScarArmOne;
-    public GameObject ScarArmTwo;
+    public Renderer scarrend;
+    public Renderer scarrend2;
+    public Renderer scarrend3;
 
     //SPAS 12
-    public GameObject SpasRender;
-    public GameObject SpasArmOne;
-    public GameObject SpasArmTwo;
+    public Renderer spasrend;
+    public Renderer spasrend2;
+    public Renderer spasrend3;
 
 
     //Actual weapon. (Script)
@@ -30,7 +30,21 @@ public class SwitchWeapons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+
+
+        //FN SCAR
+        scarrend.enabled = false;
+        scarrend2.enabled = false;
+        scarrend3.enabled = false;
+
+        //SPAS12
+        spasrend.enabled = false;
+        spasrend2.enabled = false;
+        spasrend3.enabled = false;
+
+
+
 	}
 	
 	// Update is called once per frame
@@ -42,12 +56,18 @@ public class SwitchWeapons : MonoBehaviour {
         {
 
             //Visual
-
-
-
+            //FNSCAR
+            scarrend.enabled = true;
+            scarrend2.enabled = true;
+            scarrend3.enabled = true;
+            //OTHERS
+            spasrend.enabled = false;
+            spasrend2.enabled = false;
+            spasrend3.enabled = false;
 
             //Script
-
+            ScarShoot.SetActive(true);
+            SpasShoot.SetActive(false);
 
         }
 
@@ -57,9 +77,19 @@ public class SwitchWeapons : MonoBehaviour {
         {
 
             //Visual
-
+            //SPAS12
+            spasrend.enabled = true;
+            spasrend2.enabled = true;
+            spasrend3.enabled = true;
+            //OTHERS
+            scarrend.enabled = false;
+            scarrend2.enabled = false;
+            scarrend3.enabled = false;
 
             //Script
+            SpasShoot.SetActive(true);
+            ScarShoot.SetActive(false);
+
 
 
         }
