@@ -32,6 +32,9 @@ public class pl_spas12shoot : MonoBehaviour
 
 
 
+    //Amount of shots (shotguns mostly)
+    int amountOfProjectiles = 10;
+
     //Scar FireRate.
     public float ScarfireRate = 5f;
     private float nextTimeToFire = 0f;
@@ -118,12 +121,12 @@ public class pl_spas12shoot : MonoBehaviour
 
 
     //pun rpc 
-    [PunRPC]
-    private void TakeDamage()
-    {
-        Health -= 10f;
+    //[PunRPC]
+    //private void TakeDamage()
+    //{
+        //Health -= 10f;
 
-    }
+    //}
 
 
 
@@ -195,7 +198,7 @@ public class pl_spas12shoot : MonoBehaviour
         if (Scaraudioran == 1)
         {
 
-            ScaraudioSourceShoot.volume = (Random.Range(0.7f, 0.8f));
+            ScaraudioSourceShoot.volume = (Random.Range(0.5f, 0.6f));
             ScaraudioSourceShoot.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot.Play();
 
@@ -203,7 +206,7 @@ public class pl_spas12shoot : MonoBehaviour
 
         if (Scaraudioran == 2)
         {
-            ScaraudioSourceShoot1.volume = (Random.Range(0.7f, 0.8f));
+            ScaraudioSourceShoot1.volume = (Random.Range(0.5f, 0.6f));
             ScaraudioSourceShoot1.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot1.Play();
 
@@ -212,7 +215,7 @@ public class pl_spas12shoot : MonoBehaviour
 
         if (Scaraudioran == 3)
         {
-            ScaraudioSourceShoot2.volume = (Random.Range(0.7f, 0.8f));
+            ScaraudioSourceShoot2.volume = (Random.Range(0.5f, 0.6f));
             ScaraudioSourceShoot2.pitch = (Random.Range(0.7f, 1.0f));
             ScaraudioSourceShoot2.Play();
 
@@ -225,7 +228,7 @@ public class pl_spas12shoot : MonoBehaviour
         if (ScarisADS == false)
         {
 
-            cPMPlayer.rotX += Random.Range(-12, -24f);
+            cPMPlayer.rotX += Random.Range(-2, -4f);
             cPMPlayer.rotY += Random.Range(-1.15f, 1.30f);
 
         }
@@ -236,7 +239,7 @@ public class pl_spas12shoot : MonoBehaviour
         {
 
 
-            cPMPlayer.rotX += Random.Range(-6f, -12f);
+            cPMPlayer.rotX += Random.Range(-1f, -2f);
             cPMPlayer.rotY += Random.Range(-0.9f, 0.55f);
 
         }
@@ -248,7 +251,7 @@ public class pl_spas12shoot : MonoBehaviour
         if (ScarisADS == false)
         {
 
-            scarSpreadCollection += 0.5f;
+            scarSpreadCollection += 0.008f;
 
         }
 
@@ -258,7 +261,7 @@ public class pl_spas12shoot : MonoBehaviour
         {
 
 
-            scarSpreadCollection += 0.5f;
+            scarSpreadCollection += 0.005f;
 
         }
 
@@ -567,7 +570,15 @@ public class pl_spas12shoot : MonoBehaviour
             if (ScarCanShoot == true)
             {
 
-                ScarShoot();
+
+                for(int i = 0; i < amountOfProjectiles; i++) //Makes it shoot multiple times. (amountofprojectiles) int. For shotguns mostly.
+                {
+
+
+                    ScarShoot();
+
+                }
+                
 
             }
 

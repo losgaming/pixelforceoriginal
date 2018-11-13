@@ -44,6 +44,7 @@ public class CPMPlayer : MonoBehaviour
     public float playerViewYOffset = 0.6f; // The height at which the camera is bound to
     public float xMouseSensitivity = 30.0f;
     public float yMouseSensitivity = 30.0f;
+    public FixedTouchField fixedTouchField;
 //
     /*Frame occuring factors*/
     public float gravity = 20.0f;
