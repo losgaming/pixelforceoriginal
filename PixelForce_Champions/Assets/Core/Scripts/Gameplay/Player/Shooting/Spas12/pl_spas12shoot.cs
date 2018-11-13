@@ -313,13 +313,11 @@ public class pl_spas12shoot : MonoBehaviour
         }
 
 
-        //If we hit a player with photonview do something.
+        //If we hit a player with photonview do something. (Enemy player).
         if (hit.collider.tag == "Enemy")
         {
 
             hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
-            Debug.Log("You have hit an enemy");
-            print("I'm looking at " + hit.transform.name);
             PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
         }

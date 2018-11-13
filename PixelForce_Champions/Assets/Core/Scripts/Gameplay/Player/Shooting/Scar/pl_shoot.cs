@@ -4,6 +4,9 @@ public class pl_shoot : MonoBehaviour
 {
 
 
+
+
+
     //Scar anims
     public scar_animatorone scar_Animatorone;
     public scar_animatortwo scar_Animatortwo;
@@ -113,12 +116,12 @@ public class pl_shoot : MonoBehaviour
 
 
     //pun rpc 
-    [PunRPC]
-    private void TakeDamage()
-    {
-        Health -= 10f;
+    //[PunRPC]
+    //private void TakeDamage()
+    //{
+        //Health -= 10f;
 
-    }
+    //}
 
 
 
@@ -309,8 +312,6 @@ public class pl_shoot : MonoBehaviour
         {
 
             hit.collider.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.AllBuffered);
-            Debug.Log("You have hit an enemy");
-            print("I'm looking at " + hit.transform.name);
             PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
         }
