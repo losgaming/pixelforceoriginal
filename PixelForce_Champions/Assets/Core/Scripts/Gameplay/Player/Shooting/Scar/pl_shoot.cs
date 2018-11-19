@@ -5,6 +5,10 @@ public class pl_shoot : MonoBehaviour
 
 
 
+    //Reference to shake transform sript.
+    public ShakeTransform st;
+    public ShakeTransformEventData data;
+
     //pl_health reference script
     public pl_health pl_Health;
 
@@ -151,6 +155,10 @@ public class pl_shoot : MonoBehaviour
     {
 
 
+
+
+
+        st.AddShakeEvent(data);
 
 
         ScarClipRecord += 1;
