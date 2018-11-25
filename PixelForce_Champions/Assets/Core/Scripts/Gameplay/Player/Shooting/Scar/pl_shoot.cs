@@ -438,6 +438,7 @@ public class pl_shoot : MonoBehaviour
             ScarClip = 30;
             ScarClipRecord = 0;
             canReload = true;
+            ScarCanShoot = true;
 
         }
 
