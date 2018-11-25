@@ -274,6 +274,14 @@ public class pl_shoot : MonoBehaviour
             PhotonNetwork.Instantiate("ScanLocation", hit.point, Quaternion.identity, 0);
         }
 
+        else
+        {
+
+
+
+            return;
+        }
+
 
 
 
@@ -310,6 +318,13 @@ public class pl_shoot : MonoBehaviour
 
 
 
+
+        }
+
+        else
+        {
+
+            return;
 
         }
 

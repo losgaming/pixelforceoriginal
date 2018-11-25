@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class pl_spas12shoot : MonoBehaviour
 {
 
 
-
+    //Reference to ammo text in canvas (UI)
+    public Text spascurrentammotext;
+    public Text spasmaxammotext;
 
     //pl_health reference script
     public pl_health pl_Health;
@@ -47,9 +50,10 @@ public class pl_spas12shoot : MonoBehaviour
 
 
     //Scar ammo system.
-    public float ScarClip = 30;
-    public float ScarMags = 270;
+    public float ScarClip = 8;
+    public float ScarMags = 24;
     public float ScarClipRecord = 0;
+    public bool canReload = true;
 
 
     //Scar Shoot Sounds with different pitches
@@ -160,8 +164,7 @@ public class pl_spas12shoot : MonoBehaviour
 
 
 
-        ScarClipRecord += 1;
-        ScarClip -= 1;
+
 
 
 
@@ -268,6 +271,14 @@ public class pl_spas12shoot : MonoBehaviour
             PhotonNetwork.Instantiate("ScanLocation", hit.point, Quaternion.identity, 0);
         }
 
+        else
+        {
+
+
+
+            return;
+        }
+
 
         //If we hit a test object with a tag "Test" do something.
         if (hit.collider.tag == "Test")
@@ -301,6 +312,14 @@ public class pl_spas12shoot : MonoBehaviour
 
 
 
+
+        }
+
+
+        else
+        {
+
+            return;
 
         }
 
@@ -374,6 +393,13 @@ public class pl_spas12shoot : MonoBehaviour
 
 
 
+        //Updates the ammo text in (Canvas) for the UI.
+        spascurrentammotext.text = "" + ScarClip;
+        spasmaxammotext.text = "" + ScarMags;
+
+
+
+
         //Checks if clip is empty.
         if (ScarClip == 0)
         {
@@ -386,21 +412,21 @@ public class pl_spas12shoot : MonoBehaviour
         }
 
         //Ensure the scar clip record cant exceed 30. 
-        if (ScarClipRecord == 30)
+        if (ScarClipRecord == 8)
         {
 
-            ScarClipRecord = 30;
+            ScarClipRecord = 8;
 
 
         }
 
         //Reload your gun.
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && canReload == true)
         {
 
             ScarMags -= ScarClipRecord;
             ScarCanShoot = true;
-            ScarClip = 30;
+            ScarClip = 8;
             ScarClipRecord = 0;
             scarSpread = 0.01f;
             scarSpreadCollection = 0.01f;
@@ -412,9 +438,10 @@ public class pl_spas12shoot : MonoBehaviour
         if (ScarMags <= 0)
         {
 
-            ScarCanShoot = false;
             scarSpread = 0.01f;
             scarSpreadCollection = 0.01f;
+            ScarMags = 0;
+            canReload = false;
 
 
         }
@@ -424,9 +451,11 @@ public class pl_spas12shoot : MonoBehaviour
         {
 
 
-            ScarMags = 270;
-            ScarClip = 30;
+            ScarMags = 24;
+            ScarClip = 8;
             ScarClipRecord = 0;
+            ScarCanShoot = true;
+            canReload = true;
 
         }
 
@@ -575,12 +604,17 @@ public class pl_spas12shoot : MonoBehaviour
 
 
         //Shoot Weapon (this calls the shoot void)
-        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
 
 
+            if (ScarCanShoot == true)
+            {
+                ScarClipRecord += 1;
+                ScarClip -= 1;
 
 
+            }
 
 
 
