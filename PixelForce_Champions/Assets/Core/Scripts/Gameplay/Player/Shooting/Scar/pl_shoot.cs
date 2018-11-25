@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class pl_shoot : MonoBehaviour
 {
 
+
+
+
+    //Reference to ammo text in canvas (UI)
+    public Text currentammotext;
+    public Text maxammotext;
 
 
     //Reference to shake transform sript.
@@ -52,6 +59,7 @@ public class pl_shoot : MonoBehaviour
     public float ScarClip = 30;
     public float ScarMags = 270;
     public float ScarClipRecord = 0;
+    public bool canReload = true;
 
 
     //Scar Shoot Sounds with different pitches
@@ -367,6 +375,14 @@ public class pl_shoot : MonoBehaviour
 
 
 
+
+
+        //Updates the ammo text in (Canvas) for the UI.
+        currentammotext.text = "" + ScarClip;
+        maxammotext.text = "" + ScarMags;
+
+
+
         //Checks if clip is empty.
         if (ScarClip == 0)
         {
@@ -388,7 +404,7 @@ public class pl_shoot : MonoBehaviour
         }
 
         //Reload your gun.
-        if (Input.GetKeyDown (KeyCode.R))
+        if (Input.GetKeyDown (KeyCode.R) && canReload == true)
         {
 
             ScarMags -= ScarClipRecord;
@@ -401,14 +417,15 @@ public class pl_shoot : MonoBehaviour
 
         }
 
-        //Can't shoot if no mags.
+        //Can't shoot if no mags. 
         if (ScarMags <= 0)
         {
 
-            ScarCanShoot = false;
+            //ScarCanShoot = false; (deprecated)
             scarSpread = 0.01f;
             scarSpreadCollection = 0.01f;
-
+            ScarMags = 0;
+            canReload = false;
 
         }
 
@@ -420,6 +437,7 @@ public class pl_shoot : MonoBehaviour
             ScarMags = 270;
             ScarClip = 30;
             ScarClipRecord = 0;
+            canReload = true;
 
         }
 

@@ -16,7 +16,7 @@ public class FootstepSystem : MonoBehaviour {
     //Footstep rate.
     public float FSRate = 5f;
     public float nextTimeToFS = 0f;
-    public float RateOfAction = 2f;
+    public float RateOfAction = 2.4f;
 
 
     //Walking on dirt.
@@ -83,7 +83,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 3)
         {
 
-            rattle3.volume = Random.Range(0.2f, 0.3f);
+            rattle3.volume = Random.Range(0.1f, 0.2f);
             rattle3.pitch = Random.Range(0.8f, 1);
             rattle3.Play();
 
@@ -92,7 +92,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 4)
         {
 
-            rattle4.volume = Random.Range(0.2f, 0.3f);
+            rattle4.volume = Random.Range(0.1f, 0.2f);
             rattle4.pitch = Random.Range(0.8f, 1);
             rattle4.Play();
 
@@ -101,7 +101,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 5)
         {
 
-            rattel5.volume = Random.Range(0.2f, 0.3f);
+            rattel5.volume = Random.Range(0.1f, 0.2f);
             rattel5.pitch = Random.Range(0.8f, 1);
             rattel5.Play();
 
@@ -110,7 +110,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 6)
         {
 
-            rattle6.volume = Random.Range(0.2f, 0.3f);
+            rattle6.volume = Random.Range(0.1f, 0.2f);
             rattle6.pitch = Random.Range(0.8f, 1);
             rattle6.Play();
 
@@ -119,7 +119,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 7)
         {
 
-            rattle7.volume = Random.Range(0.2f, 0.3f);
+            rattle7.volume = Random.Range(0.1f, 0.2f);
             rattle7.pitch = Random.Range(0.8f, 1);
             rattle7.Play();
 
@@ -128,7 +128,7 @@ public class FootstepSystem : MonoBehaviour {
         if (rattleplayrand == 8)
         {
 
-            rattle8.volume = Random.Range(0.2f, 0.3f);
+            rattle8.volume = Random.Range(0.1f, 0.2f);
             rattle8.pitch = Random.Range(0.8f, 1);
             rattle8.Play();
 
@@ -150,7 +150,7 @@ public class FootstepSystem : MonoBehaviour {
         if (dirtplayrand == 1)
         {
 
-            dirt1.volume = Random.Range(0.1f, 0.2f);
+            dirt1.volume = Random.Range(0.05f, 0.1f);
             dirt1.pitch = Random.Range(0.8f, 1);
             dirt1.Play();
 
@@ -158,7 +158,7 @@ public class FootstepSystem : MonoBehaviour {
 
         if (dirtplayrand == 2)
         {
-            dirt2.volume = Random.Range(0.1f, 0.2f);
+            dirt2.volume = Random.Range(0.05f, 0.1f);
             dirt2.pitch = Random.Range(0.8f, 1);
             dirt2.Play();
 
@@ -167,7 +167,7 @@ public class FootstepSystem : MonoBehaviour {
 
         if (dirtplayrand == 3)
         {
-            dirt3.volume = Random.Range(0.1f, 0.2f);
+            dirt3.volume = Random.Range(0.05f, 0.1f);
             dirt3.pitch = Random.Range(0.8f, 1);
             dirt3.Play();
 
@@ -175,7 +175,7 @@ public class FootstepSystem : MonoBehaviour {
 
         if (dirtplayrand == 4)
         {
-            dirt4.volume = Random.Range(0.1f, 0.2f);
+            dirt4.volume = Random.Range(0.05f, 0.1f);
             dirt4.pitch = Random.Range(0.8f, 1);
             dirt4.Play();
 
@@ -183,7 +183,7 @@ public class FootstepSystem : MonoBehaviour {
 
         if (dirtplayrand == 5)
         {
-            dirt5.volume = Random.Range(0.1f, 0.2f);
+            dirt5.volume = Random.Range(0.05f, 0.1f);
             dirt5.pitch = Random.Range(0.8f, 1);
             dirt5.Play();
 
@@ -205,7 +205,7 @@ public class FootstepSystem : MonoBehaviour {
         {
 
 
-            RateOfAction = 1.65f;
+            RateOfAction = 1.85f;
 
 
         }
@@ -215,7 +215,7 @@ public class FootstepSystem : MonoBehaviour {
         {
 
 
-            RateOfAction = 2.1f;
+            RateOfAction = 2.4f;
 
 
         }

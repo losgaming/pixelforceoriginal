@@ -122,13 +122,26 @@ public class CPMPlayer : MonoBehaviour
 
 
 
+        //Spacebar (Jump) prevents you from speeding in air.
+        if (Input.GetKey(KeyCode.Space))
+        {
+
+            moveSpeed = 5f;
+
+        }
+
+
+
+
+
+
         //Sprint
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
 
 
-            moveSpeed = 8.4f;
+            moveSpeed = 7.5f;
 
 
         }
