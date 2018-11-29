@@ -286,6 +286,18 @@ public class pl_shoot : MonoBehaviour
 
 
 
+        if (hit.collider.tag == "Debug")
+        {
+
+
+            Debug.Log("Hey you hit something cunt!");
+            hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
+
+        }
+
+
+
+
         //If we hit a test object with a tag "Test" do something.
         if (hit.collider.tag == "Test")
         {
@@ -293,7 +305,7 @@ public class pl_shoot : MonoBehaviour
 
 
             hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
-            PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+            //PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
 
 

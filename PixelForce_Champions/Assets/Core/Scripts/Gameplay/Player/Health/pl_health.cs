@@ -16,30 +16,7 @@ public class pl_health : MonoBehaviour {
     public GameObject currentplayer;
 
 
-    //Scar damage
-    [PunRPC]
-    private void ScarTakeDamage()
-    {
 
-        plhealth -= 12;
-        Debug.Log(plhealth);
-
-
-        Debug.Log("You have hit");
-
-    }
-
-    //Spas12 damage
-    [PunRPC]
-    private void SPAS12TakeDamage()
-    {
-
-        plhealth -= 11;
-        Debug.Log(plhealth);
-
-        Debug.Log("You have hit");
-
-    }
 
 
 

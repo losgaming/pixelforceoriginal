@@ -289,7 +289,7 @@ public class pl_spas12shoot : MonoBehaviour
 
 
             hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
-            PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+            //PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
 
 
