@@ -291,6 +291,12 @@ public class pl_shoot : MonoBehaviour
         {
 
 
+
+            hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
+            PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+
+
+
             hitmarkerrand = Random.Range(1, 2);
 
 

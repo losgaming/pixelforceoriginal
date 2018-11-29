@@ -24,6 +24,9 @@ public class pl_health : MonoBehaviour {
         plhealth -= 12;
         Debug.Log(plhealth);
 
+
+        Debug.Log("You have hit");
+
     }
 
     //Spas12 damage
@@ -33,6 +36,8 @@ public class pl_health : MonoBehaviour {
 
         plhealth -= 11;
         Debug.Log(plhealth);
+
+        Debug.Log("You have hit");
 
     }
 

@@ -285,6 +285,15 @@ public class pl_spas12shoot : MonoBehaviour
         {
 
 
+            //to actually have this register you must use an actual collider component rather than just a "Character Controller" so make sure that you don't forget if something is not working. This can be the reason most of the time.
+
+
+            hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
+            PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
+
+
+
+
             hitmarkerrand = Random.Range(1, 2);
 
 
