@@ -281,14 +281,14 @@ public class pl_spas12shoot : MonoBehaviour
 
 
         //If we hit a test object with a tag "Test" do something.
-        if (hit.collider.tag == "Test")
+        if (hit.collider.tag == "Debug")
         {
 
 
             //to actually have this register you must use an actual collider component rather than just a "Character Controller" so make sure that you don't forget if something is not working. This can be the reason most of the time.
 
 
-            hit.collider.GetComponent<PhotonView>().RPC("ScarTakeDamage", PhotonTargets.AllBuffered);
+            hit.collider.GetComponent<PhotonView>().RPC("SPAS12TakeDamage", PhotonTargets.AllBuffered);
             //PhotonNetwork.Instantiate("ScanLocation", hit.normal, Quaternion.identity, 0);
 
 
