@@ -25,6 +25,12 @@ public class SwitchWeapons : MonoBehaviour {
     public Renderer spasrend3;
 
 
+    //Mauler
+    public Renderer maulerrend;
+    public Renderer maulerrend2;
+    public Renderer maulerrend3;
+
+
     //Actual weapon. (Script)
     public GameObject ScarShoot;
     public GameObject SpasShoot;
@@ -45,12 +51,34 @@ public class SwitchWeapons : MonoBehaviour {
         spasrend2.enabled = false;
         spasrend3.enabled = false;
 
+        //Mauler
+        maulerrend.enabled = false;
+        maulerrend2.enabled = false;
+        maulerrend3.enabled = false;
+
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+        //Just for test don't use for final release.
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+
+
+
+            maulerrend.enabled = true;
+            maulerrend2.enabled = true;
+            maulerrend3.enabled = true;
+
+
+        }
+
+
 
 
         //Sets spas12 active. Make sure everything else gets set to false.
