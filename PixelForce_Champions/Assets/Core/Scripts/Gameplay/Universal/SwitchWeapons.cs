@@ -34,6 +34,7 @@ public class SwitchWeapons : MonoBehaviour {
     //Actual weapon. (Script)
     public GameObject ScarShoot;
     public GameObject SpasShoot;
+    public GameObject MaulerShoot;
 
 
 	// Use this for initialization
@@ -65,23 +66,8 @@ public class SwitchWeapons : MonoBehaviour {
 
 
 
-        //Just for test don't use for final release.
-        if (Input.GetKeyDown(KeyCode.K))
-        {
 
-
-
-            maulerrend.enabled = true;
-            maulerrend2.enabled = true;
-            maulerrend3.enabled = true;
-
-
-        }
-
-
-
-
-        //Sets spas12 active. Make sure everything else gets set to false.
+        //Sets scar active. Make sure everything else gets set to false.
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
@@ -94,16 +80,20 @@ public class SwitchWeapons : MonoBehaviour {
             spasrend.enabled = false;
             spasrend2.enabled = false;
             spasrend3.enabled = false;
+            maulerrend.enabled = false;
+            maulerrend2.enabled = false;
+            maulerrend3.enabled = false;
 
             //Script
             ScarShoot.SetActive(true);
+            //False
             SpasShoot.SetActive(false);
-
+            MaulerShoot.SetActive(false);
         }
 
 
-        //Sets scar active. Make sure everything else gets set to false.
-        if(Input.GetKeyDown(KeyCode.Alpha2))
+        //Sets spas-12 active. Make sure everything else gets set to false.
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
             //Visual
@@ -115,15 +105,52 @@ public class SwitchWeapons : MonoBehaviour {
             scarrend.enabled = false;
             scarrend2.enabled = false;
             scarrend3.enabled = false;
+            maulerrend.enabled = false;
+            maulerrend2.enabled = false;
+            maulerrend3.enabled = false;
 
             //Script
             SpasShoot.SetActive(true);
+            //False
             ScarShoot.SetActive(false);
+            MaulerShoot.SetActive(false);
 
 
 
         }
 
-		
-	}
+
+        //Sets mauler active. Make sure everything else gets set to false.
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+
+
+            //Visual
+            //Mauler
+            maulerrend.enabled = true;
+            maulerrend2.enabled = true;
+            maulerrend3.enabled = true;
+            //OTHERS
+            scarrend.enabled = false;
+            scarrend2.enabled = false;
+            scarrend3.enabled = false;
+            spasrend.enabled = false;
+            spasrend2.enabled = false;
+            spasrend3.enabled = false;
+
+            //Script
+            MaulerShoot.SetActive(true);
+            //False
+            ScarShoot.SetActive(false);
+            SpasShoot.SetActive(false);
+
+
+        }
+
+
+
+
+
+
+    }
 }

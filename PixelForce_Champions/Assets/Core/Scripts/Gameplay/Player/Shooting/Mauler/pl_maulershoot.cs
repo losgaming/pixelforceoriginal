@@ -1,11 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class pl_shoot : MonoBehaviour
-{
-
-
-
+public class pl_maulershoot : MonoBehaviour {
 
     //Reference to ammo text in canvas (UI)
     public Text currentammotext;
@@ -19,9 +17,9 @@ public class pl_shoot : MonoBehaviour
     //pl_health reference script
     public pl_health pl_Health;
 
-    //Scar anims
-    public scar_animatorone scar_Animatorone;
-    public scar_animatortwo scar_Animatortwo;
+    //Scar anims (change the class name and object type whenever you make a new weapon) or else you cannot set the animator.
+    public mauler_animator mauler_Animator;
+
 
 
     //Where the raycast come from.
@@ -29,7 +27,8 @@ public class pl_shoot : MonoBehaviour
 
 
 
-
+    //Amount of shots (shotguns mostly)
+    int amountOfProjectiles = 2;
 
     //Aim sway scipt reference
     public AimSway aimSway;
@@ -57,8 +56,8 @@ public class pl_shoot : MonoBehaviour
 
 
     //Scar ammo system.
-    public float ScarClip = 30;
-    public float ScarMags = 270;
+    public float ScarClip = 65;
+    public float ScarMags = 325;
     public float ScarClipRecord = 0;
     public bool canReload = true;
 
@@ -68,9 +67,8 @@ public class pl_shoot : MonoBehaviour
     public AudioSource ScaraudioSourceShoot1;
     public AudioSource ScaraudioSourceShoot2;
 
-    //Scar animators for shoot and walk etc...
+    //Scar animators for shoot and walk etc... (only needs one for blend file, if you're using an FBX you might nee two seperate for both hands and weapon
     public Animator Scaranimone;
-    public Animator Scaranimtwo;
 
     //This set of crosshair is for staying still spread representation.
     public GameObject Scarch1;
@@ -133,7 +131,7 @@ public class pl_shoot : MonoBehaviour
     {
 
         Scaranimone.SetBool("IsShoot", false);
-        Scaranimtwo.SetBool("IsShoot", false);
+
 
 
     }
@@ -182,7 +180,7 @@ public class pl_shoot : MonoBehaviour
 
 
         Scaranimone.SetBool("IsShoot", true);
-        Scaranimtwo.SetBool("IsShoot", true);
+
 
 
 
@@ -296,6 +294,13 @@ public class pl_shoot : MonoBehaviour
 
         }
 
+        else
+        {
+
+
+            return;
+        }
+
 
 
 
@@ -313,7 +318,7 @@ public class pl_shoot : MonoBehaviour
             hitmarkerrand = Random.Range(1, 2);
 
 
-            if (hitmarkerrand == 1 )
+            if (hitmarkerrand == 1)
             {
 
 
@@ -418,32 +423,33 @@ public class pl_shoot : MonoBehaviour
 
 
         //Checks if clip is empty.
-        if (ScarClip == 0)
+        if (ScarClip <= 0)
         {
 
             ScarCanShoot = false;
             scarSpread = 0.01f;
             scarSpreadCollection = 0.01f;
+            ScarClip = 0;
 
 
         }
 
         //Ensure the scar clip record cant exceed 30. 
-        if (ScarClipRecord == 30)
+        if (ScarClipRecord == 65)
         {
 
-            ScarClipRecord = 30;
+            ScarClipRecord = 65;
 
 
         }
 
         //Reload your gun.
-        if (Input.GetKeyDown (KeyCode.R) && canReload == true)
+        if (Input.GetKeyDown(KeyCode.R) && canReload == true)
         {
 
             ScarMags -= ScarClipRecord;
             ScarCanShoot = true;
-            ScarClip = 30;
+            ScarClip = 65;
             ScarClipRecord = 0;
             scarSpread = 0.01f;
             scarSpreadCollection = 0.01f;
@@ -468,8 +474,8 @@ public class pl_shoot : MonoBehaviour
         {
 
 
-            ScarMags = 270;
-            ScarClip = 30;
+            ScarMags = 325;
+            ScarClip = 65;
             ScarClipRecord = 0;
             canReload = true;
             ScarCanShoot = true;
@@ -500,7 +506,6 @@ public class pl_shoot : MonoBehaviour
             Scarch2.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
             Scarch3.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
             Scarch4.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
-            Scaranimtwo.SetBool("IsADS", true);
             Scaranimone.SetBool("IsADS", true);
             scarSpread = 0;
             scarSpreadCollection = 0;
@@ -511,7 +516,7 @@ public class pl_shoot : MonoBehaviour
             aimSway.maxSwayAngle = 2;
             aimSway.swayAngle = 2;
             aimSway.swaySmooth = 20;
-            
+
 
 
             Scaraudioranm = Random.Range(1, 3);
@@ -559,7 +564,6 @@ public class pl_shoot : MonoBehaviour
             Scarch3.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
             Scarch4.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
-            Scaranimtwo.SetBool("IsADS", false);
             Scaranimone.SetBool("IsADS", false);
 
             scarSpread = 0.01f;
@@ -636,7 +640,16 @@ public class pl_shoot : MonoBehaviour
             if (ScarCanShoot == true)
             {
 
-                ScarShoot();
+
+
+
+                for (int i = 0; i < amountOfProjectiles; i++) //Makes it shoot multiple times. (amountofprojectiles) int. For shotguns mostly.
+                {
+
+
+                    ScarShoot();
+
+                }
 
             }
 
