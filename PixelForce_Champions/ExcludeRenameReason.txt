@@ -1,0 +1,216 @@
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1/System.Collections.Generic.IEnumerator<object>.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1/System.Collections.IEnumerator.Current
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::MoveNext System.Boolean()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::System.Collections.Generic.IEnumerator<object>.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::System.Collections.IEnumerator.get_Current System.Object()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::Dispose System.Void()
+Reason00: is virtual
+---------
+Reference: [Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::Reset System.Void()
+Reason00: by exclude table unity function names
+---------
+Reference: [Assembly-CSharp].NetObf.Test/Vwr34FbdbFWwqpu5dCn3sgLp4::DFd43fx System.Void()
+Reason00: 
+---------
+Reference: [Assembly-CSharp].NetObf.Test/湖草空間例子忘記要記住::間例 System.Void()
+Reason00: 
+---------
+Reference: [Assembly-CSharp].NetObf.ResourcesTools::GetResourceStreamBytes System.Byte[]([mscorlib].System.Reflection.Assembly,[mscorlib].System.String)
+Reason00: is public & flag IsDontRenamePublic
+---------
+Reference: [Assembly-CSharp].NetObf.ResourcesTools::GetResourceStreamString System.String([mscorlib].System.Reflection.Assembly,[mscorlib].System.String)
+Reason00: is public & flag IsDontRenamePublic
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::$this
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::$current
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::$disposing
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountDelay>c__Iterator3::$PC
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::$this
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::$current
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::$disposing
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<TapCountdown>c__Iterator2::$PC
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::$this
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::$current
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::$disposing
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<FadeLogic>c__Iterator1::$PC
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::$this
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::$current
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::$disposing
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp]..UltimateJoystick/<ThrowableMovement>c__Iterator0::$PC
+Reason08: attribute: UnityEngine.ExecuteInEditMode
+---------
+Reference: [Assembly-CSharp].NetObf.Test/.Vwr34FbdbFWwqpu5dCn3sgLp4
+Reason00: 
+---------
+Reference: [Assembly-CSharp].NetObf.Test/.湖草空間例子忘記要記住
+Reason00: 
+---------
+Reference: [Assembly-CSharp].NetObf.Test
+Reason02(IsExclude): name contains in name_exclude_table_as_class_name

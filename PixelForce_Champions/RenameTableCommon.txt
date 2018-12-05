@@ -1,0 +1,130 @@
+[Assembly-CSharp].NetObf.StringLocalization::PlayerPrefsSetString System.Void([mscorlib].System.String,[mscorlib].System.String)	卣
+[Assembly-CSharp].NetObf.StringLocalization::GetLocalizationKey System.Int32([mscorlib].System.String)	卨
+[Assembly-CSharp].NetObf.StrEncrypt::_DecryptStringFast System.String([mscorlib].System.String)	厫
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetString System.String([mscorlib].System.String,[mscorlib].System.String)	厂
+[Assembly-CSharp].NetObf.Test::TestStr System.Boolean()	卻
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceAssetBundle UnityEngine.AssetBundle([mscorlib].System.String,[mscorlib].System.String)	厤
+[Assembly-CSharp].NetObf.ResourcesEncryption	.反
+[Assembly-CSharp].NetObf.ResourcesTools::GetResourceStream System.IO.Stream([mscorlib].System.Reflection.Assembly,[mscorlib].System.String)	厖
+[Assembly-CSharp].NetObf.Crypto::Decrypt_GetMeta System.String([mscorlib].System.String)	叁
+[Assembly-CSharp].NetObf.StringLocalization::UseOnlyAssemblyResources	卝
+[Assembly-CSharp].NetObf.StringLocalization::SelectLocalizationName System.Boolean([mscorlib].System.String)	卪
+[Assembly-CSharp].NetObf.StringLocalization	.叇
+[Assembly-CSharp].NetObf.StringLocalization::LoadDefaults System.Void()	即
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::$current	參
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceAssetObject UnityEngine.Object([mscorlib].System.String,[mscorlib].System.String)	厥
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::SetString System.Void([mscorlib].System.String,[mscorlib].System.String)	厅
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::HasKey System.Boolean([mscorlib].System.String)	卾
+[Assembly-CSharp].NetObf.DM::expirationTime3	厒
+[Assembly-CSharp].NetObf.DM::expirationTime4	厓
+[Assembly-CSharp].NetObf.Crypto::Decrypt System.Byte[]([mscorlib].System.Byte[],[mscorlib].System.String)	厾
+[Assembly-CSharp].NetObf.StringLocalization::LocalizedResourcesLoad_type UnityEngine.Object([mscorlib].System.String,[mscorlib].System.Type)	危
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::Save System.Void()	卿
+[Assembly-CSharp].NetObf.ImageConversionCustom::EncodeToPNG_2017 System.Byte[]([UnityEngine.CoreModule].UnityEngine.Texture2D)	厛
+[Assembly-CSharp].NetObf.DemoMode::VerifyDemoModeExpirationTimeOnGUI System.Void()	厏
+[Assembly-CSharp].NetObf.Crypto::DecryptString System.String([mscorlib].System.String,[mscorlib].System.String)	参
+[Assembly-CSharp].NetObf.StrEncrypt::_STRING_ENCRYPT_KEY	厦
+[Assembly-CSharp].NetObf.StringLocalization::table_def	卞
+[Assembly-CSharp].NetObf.ResourcesTools::resources	厔
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceBinary System.Byte[]([mscorlib].System.String,[mscorlib].System.String)	厠
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::SetInt System.Void([mscorlib].System.String,[mscorlib].System.Int32)	厄
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::SetFloat System.Void([mscorlib].System.String,[mscorlib].System.Single)	厃
+[Assembly-CSharp].NetObf.DemoMode::VerifyDemoModeExpirationTime_GUI System.Void()	厑
+[Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::$current	參
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceTexture UnityEngine.Texture2D([mscorlib].System.String,[mscorlib].System.String)	厡
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetInt System.Int32([mscorlib].System.String,[mscorlib].System.Int32)	厁
+[Assembly-CSharp].NetObf.ResourcesTools::GetResourcesList System.String[]([mscorlib].System.Reflection.Assembly)	厕
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::$this	叆
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetStringHashAsHex System.String([mscorlib].System.String)	历
+[Assembly-CSharp].NetObf.StringLocalization::_Localization System.String([mscorlib].System.Int32)	卩
+[Assembly-CSharp].NetObf.DemoMode::IsExpired System.Boolean()	厌
+[Assembly-CSharp].NetObf.StringLocalization::LocalizedResourcesLoad_Template T([mscorlib].System.String)	卲`1
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::DeleteAll System.Void()	卼
+[Assembly-CSharp].NetObf.DemoMode::DrawExpirationMessage System.Void()	厐
+[Assembly-CSharp].NetObf.BaseMeshSerializer::ReadTriangleIndicies System.Int32[]([mscorlib].System.IO.BinaryReader,[mscorlib].System.Int32)	厺
+[Assembly-CSharp].NetObf.StringLocalization::AddToDefault System.Void([mscorlib].System.String)	卦
+[Assembly-CSharp].NetObf.BaseMeshSerializer::WriteTriangleIndicies System.Void([mscorlib].System.IO.BinaryWriter,[mscorlib].System.Int32[])	厹
+[Assembly-CSharp].NetObf.BaseMeshSerializer::ReadMesh UnityEngine.Mesh([mscorlib].System.IO.BinaryReader)	厴
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetStringHash System.UInt32([mscorlib].System.String)	卸
+[Assembly-CSharp].NetObf.ImageConversionCustom::LoadImageCustom System.Boolean([UnityEngine.CoreModule].UnityEngine.Texture2D,[mscorlib].System.Byte[])	厜
+[Assembly-CSharp].NetObf.ResourcesTools	.友
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceMesh System.Collections.Generic.IList`1<UnityEngine.Mesh>([mscorlib].System.String,[mscorlib].System.String)	厣
+[Assembly-CSharp].NetObf.StringLocalization::get_lang UnityEngine.SystemLanguage()	卢
+[Assembly-CSharp].NetObf.StringLocalization::ReadFromAssemblyDirectory System.String([mscorlib].System.String)	卶
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetFloat System.Single([mscorlib].System.String)	厀
+[Assembly-CSharp].NetObf.StringLocalization::PlayerPrefsGetString System.String([mscorlib].System.String)	卤
+[Assembly-CSharp].NetObf.StrEncrypt::DecryptStringBig System.String([mscorlib].System.String)	厮
+[Assembly-CSharp].NetObf.StringLocalization::GetSelectedLocalizationName System.String()	卫
+[Assembly-CSharp].NetObf.StringLocalization::Get2LetterISOCodeFromSystemLanguage System.String()	卥
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::DeleteKey System.Void([mscorlib].System.String)	卽
+[Assembly-CSharp].NetObf.StringLocalization::ReadFromAssemblyResources System.String([mscorlib].System.String)	卵
+[Assembly-CSharp].NetObf.StringLocalization::LoadLocalizationFileFromText System.Boolean([mscorlib].System.String)	卯
+[Assembly-CSharp].NetObf.PlayerPrefsProtected	.又
+[Assembly-CSharp].NetObf.StringLocalization::_LoadDefaultResorceFile System.Boolean([mscorlib].System.String)	却
+[Assembly-CSharp].NetObf.DemoMode	.叉
+[Assembly-CSharp].NetObf.StringLocalization::ReadFromUnityResorceAsset System.String([mscorlib].System.String)	卷
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceTextureEx UnityEngine.Texture2D([mscorlib].System.String,[mscorlib].System.String,[mscorlib].System.Int32,[mscorlib].System.Int32,[UnityEngine.CoreModule].UnityEngine.TextureFormat,[mscorlib].System.Boolean,[mscorlib].System.Boolean)	厢
+[Assembly-CSharp].NetObf.Crypto::GetDefaultEncryptPassword System.String()	厩
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::$PC	叅
+[Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::$PC	叅
+[Assembly-CSharp].NetObf.Crypto::prefix2	厽
+[Assembly-CSharp].NetObf.DemoMode::IsExpiredLevel System.Int32()	厍
+[Assembly-CSharp].NetObf.ImageConversionCustom::LoadImage_2017 System.Boolean([UnityEngine.CoreModule].UnityEngine.Texture2D,[mscorlib].System.Byte[])	厚
+[Assembly-CSharp].NetObf.Crypto::IsEncrypted System.Boolean([mscorlib].System.String)	县
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetInt System.Int32([mscorlib].System.String)	厁
+[Assembly-CSharp].NetObf.StringLocalization::RemoveFromChangeLang System.Void([System.Core].System.Action)	卮
+[Assembly-CSharp].NetObf.StringLocalization::LocalizedResourcesLoad UnityEngine.Object([mscorlib].System.String)	印
+[Assembly-CSharp].NetObf.BaseMeshSerializer::WriteMeshHeader System.Void([mscorlib].System.IO.BinaryWriter,[mscorlib].System.Int32,[mscorlib].System.Int32)	厵
+[Assembly-CSharp].NetObf.DemoMode::st_group	厊
+[Assembly-CSharp].NetObf.StringLocalization::FindInChangeLang System.Action([System.Core].System.Action)	卹
+[Assembly-CSharp].NetObf.BaseMeshSerializer::WriteVertices System.Void([mscorlib].System.IO.BinaryWriter,[UnityEngine.CoreModule].UnityEngine.Vector3[],[UnityEngine.CoreModule].UnityEngine.Transform)	厷
+[Assembly-CSharp].NetObf.BaseMeshSerializer::def_headerSize	厯
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetFloat System.Single([mscorlib].System.String,[mscorlib].System.Single)	厀
+[Assembly-CSharp].NetObf.StringLocalization::Translate System.String([mscorlib].System.String)	卧
+[Assembly-CSharp].NetObf.ImageConversionCustom::is2017	厗
+[Assembly-CSharp].NetObf.Crypto::DecryptBytes System.Byte[]([mscorlib].System.String,[mscorlib].System.String)	叀
+[Assembly-CSharp].NetObf.StringLocalization/lang	卜
+[Assembly-CSharp].NetObf.StrEncrypt::EncryptStringUTF8 System.String([mscorlib].System.String)	厭
+[Assembly-CSharp].NetObf.ImageConversionCustom::is_init	厙
+[Assembly-CSharp].NetObf.BaseMeshSerializer::DeserializeMeshes System.Collections.Generic.IEnumerable`1<UnityEngine.Mesh>([mscorlib].System.Byte[])	厲
+[Assembly-CSharp].NetObf.DemoMode::expirationTime	厈
+[Assembly-CSharp].NetObf.StrEncrypt::_DecryptStringFastInd System.String([mscorlib].System.String,[mscorlib].System.Int32)	厪
+[Assembly-CSharp].NetObf.Test::VerifyString	卺
+[Assembly-CSharp].NetObf.StringLocalization::table_base	卟
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::$disposing	叄
+[Assembly-CSharp].NetObf.StrEncrypt::list	厧
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceDisbaleLocalization System.Void([mscorlib].System.Boolean)	厞
+[Assembly-CSharp].NetObf.StringLocalization::AddToChangeLang System.Void([System.Core].System.Action)	卭
+[Assembly-CSharp].NetObf.StrEncrypt::DecryptStringUTF8 System.String([mscorlib].System.String)	厬
+[Assembly-CSharp].NetObf.ResourcesEncryption::LoadEncryptedResourceText System.String([mscorlib].System.String,[mscorlib].System.String)	原
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<FadeDeathScreen>c__Iterator1::$PC	叅
+[Assembly-CSharp].NetObf.StrEncrypt	.収
+[Assembly-CSharp].NetObf.DM	.及
+[Assembly-CSharp].NetObf.PlayerPrefsProtected::GetString System.String([mscorlib].System.String)	厂
+[Assembly-CSharp].NetObf.ResourcesEncryption::disableLocalization	厝
+[Assembly-CSharp].NetObf.BaseMeshSerializer::Load System.Collections.Generic.IList`1<UnityEngine.Mesh>([mscorlib].System.Byte[])	厰
+[Assembly-CSharp].NetObf.Crypto::prefix	厼
+[Assembly-CSharp].NetObf.DemoMode::expirationTime2	厉
+[Assembly-CSharp].NetObf.BaseMeshSerializer::Save System.Byte[]([mscorlib].System.Collections.Generic.IEnumerable`1)	卿
+[Assembly-CSharp].NetObf.BaseMeshSerializer::SerializeMeshes System.Byte[]([mscorlib].System.Collections.Generic.IEnumerable`1)	厱
+[Assembly-CSharp].NetObf.DemoMode::VerifyDemoModeExpirationTime System.Void()	厎
+[Assembly-CSharp].NetObf.BaseMeshSerializer::ReadVertices UnityEngine.Vector3[]([mscorlib].System.IO.BinaryReader,[mscorlib].System.Int32)	厸
+[Assembly-CSharp].NetObf.StringLocalization::table	占
+[Assembly-CSharp].NetObf.ImageConversionCustom::LoadImage_bytes	厘
+[Assembly-CSharp].NetObf.DemoMode::st_text	压
+[Assembly-CSharp].NetObf.StringLocalization::GetStringHash System.UInt32([mscorlib].System.String)	卸
+[Assembly-CSharp].NetObf.ImageConversionCustom	.双
+[Assembly-CSharp].NetObf.StringLocalization::changeLangActions	卡
+[Assembly-CSharp]..UltimateJoystickScreenSizeUpdater/<YieldPositioning>c__Iterator0::$disposing	叄
+[Assembly-CSharp].NetObf.BaseMeshSerializer	.叏
+[Assembly-CSharp].NetObf.Crypto::GetStringHash System.UInt32([mscorlib].System.String)	卸
+[Assembly-CSharp].NetObf.StringLocalization::GetLanguageNames System.String[]()	卬
+[Assembly-CSharp].NetObf.Crypto	.叐
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::$disposing	叄
+[Assembly-CSharp].NetObf.BaseMeshSerializer::ReadMeshHeader System.Void([mscorlib].System.IO.BinaryReader,[mscorlib].System.Int32&,[mscorlib].System.Int32&)	厶
+[Assembly-CSharp].NetObf.StrEncrypt::GetDefaultEncryptPassword System.UInt32()	厩
+[Assembly-CSharp].NetObf.StrEncrypt::Rnd	厨
+[Assembly-CSharp].NetObf.BaseMeshSerializer::WriteMesh System.Void([mscorlib].System.IO.BinaryWriter,[UnityEngine.CoreModule].UnityEngine.Mesh,[UnityEngine.CoreModule].UnityEngine.Transform)	厳
+[Assembly-CSharp].NetObf.DemoMode::ExpirationAfterMinutes	厇
+[Assembly-CSharp].UltimateJoystickExample.Spaceship.GameManager/<ShakeCamera>c__Iterator2::$current	參
+[Assembly-CSharp].NetObf.Crypto::_DefaultEncryptPassword	去
